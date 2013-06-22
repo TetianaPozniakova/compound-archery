@@ -1,5 +1,7 @@
 # Django settings for kat project.
 import os.path
+from django.conf import settings
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,8 +14,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'kat.db',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -47,7 +49,7 @@ USE_I18N = False
 USE_L10N = False
 
 # If you set this to False, Django will not use timezone-aware datetimes.
-USE_TZ = False
+USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
@@ -100,9 +102,18 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'pagination.middleware.PaginationMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',)
 
 ROOT_URLCONF = 'kat.urls'
 
@@ -119,8 +130,12 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
+    'django.contrib.comments',
     'django.contrib.admin',
+    'tagging',
+    'pagination',
+    'gencal',
+    'kat_news',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'kat_main_site',
@@ -154,3 +169,20 @@ LOGGING = {
         },
     }
 }
+
+# If  NEWS_TAGGING set to True, but tagging application does not installed,
+# set NEWS_TAGGING to False
+
+if 'tagging' in settings.INSTALLED_APPS:
+    NEWS_TAGGING = getattr(settings, 'NEWS_TAGGING', True)
+else:
+    try:
+        import tagging
+        NEWS_TAGGING = getattr(settings, 'NEWS_TAGGING', False)
+    except ImportError:
+        NEWS_TAGGING = False
+
+ENABLE_NEWS_LIST = getattr(settings, 'ENABLE_NEWS_LIST', False)
+ENABLE_NEWS_ARCHIVE_INDEX = getattr(settings, 'ENABLE_NEWS_ARCHIVE_INDEX', True)
+ENABLE_NEWS_DATE_ARCHIVE = getattr(settings, 'ENABLE_NEWS_DATE_ARCHIVE', True)
+

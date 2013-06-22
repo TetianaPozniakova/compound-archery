@@ -43,3 +43,11 @@
 	text-decoration: none;
 	color: #803300;
 }
+
+.well {
+  background-color: #FFD952;
+  border: 1px solid #DD7A14;
+  -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+          border-radius: 20px;
+}
