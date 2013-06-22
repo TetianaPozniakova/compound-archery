@@ -1,0 +1,75 @@
+/*
+ * Fightland CSS style for news page.
+ * Copyright (c) 2012, 3PS Studios.
+ */
+
+.news-list {
+    margin: 20px 25px 0;
+	color: grey;
+}
+
+.news-title {
+	font-size: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.news-title a:link, a:visited {
+	text-decoration: none;
+	color: #aa4400;
+}
+
+.news-date {
+	width: 120px;
+	background: #200041;
+	text-align: center;
+	padding-right: 3px;
+	border-radius: 3px;
+	font-size: 10px;
+}
+
+.news-short {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: justify;
+	padding-bottom: 10px;
+}
+
+.news-short a:link, a:visited {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.news-empty {
+
+
+}
+
+.news-text {
+	color: grey;
+	text-align: justify;
+}
+
+.news-tags {
+	margin-bottom: 10px;
+	text-align: right;
+}
+
+.news-tags ul {
+	list-style: none;
+}
+
+.news-tags ul li {
+	display: inline;
+	margin-left: 15px;
+}
+
+.news-tags ul li a:link, a:visited {
+	text-decoration: none;
+	color: #e79a67;
+}
+
+.news-tags ul li a:visited {
+	text-decoration: none;
+	color: #e79a67;
+}
