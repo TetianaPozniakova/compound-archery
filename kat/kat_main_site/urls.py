@@ -9,4 +9,5 @@ urlpatterns = patterns('',
 
     # Static pages
     (r'^contacts/', TemplateView.as_view(template_name="contacts_page.html")),
+
 )
