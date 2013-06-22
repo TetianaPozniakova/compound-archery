@@ -1,0 +1,25 @@
+{% load pagination_tags %}
+{% load tagging_tags %}
+<div class="news-list">
+  {% autopaginate latest 10 %}
+    {% if latest %}
+        {% for object in latest %}
+			<div class="push"></div>
+            <div class="news-date">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</div>
+            <div class="news-title"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></div>
+            <div class="news-short">{{ object.short|safe }} <small>[<a href="{{ object.get_absolute_url }}">читать полностью</a>]</small></div>
+			{% tags_for_object object as tag_list %}
+			{% if tag_list %}
+				<div class="news-tags"><ul>
+				{% for tag in tag_list %}
+					<li><a href="/news/tag/{{ tag }}/">{{ tag }}</a></li>
+				{% endfor %}
+				</ul></div>
+				<div class="push"></div>
+			{% endif %}
+        {% endfor %}
+	{% paginate %}
+    {% else %}
+        <div class="news-empty">Нет новостей</div>
+    {% endif %}
+</div>
