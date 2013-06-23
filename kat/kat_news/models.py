@@ -4,7 +4,8 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from kat import settings as news_settings
 from django.core.validators import MaxLengthValidator
-
+from django.core.urlresolvers import reverse
+from taggit.managers import TaggableManager
 
 try:
     from south.modelsinspector import add_introspection_rules
@@ -40,9 +41,7 @@ class News(models.Model):
 
     show = models.BooleanField(verbose_name=u'Опубликовано', default=True)
 
-    if news_settings.NEWS_TAGGING:
-        from tagging import fields
-        tags = fields.TagField(null=True)
+    tags = TaggableManager()
 
     def month(self):
         return MONTHS[self.date.month - 1]
@@ -61,9 +60,8 @@ class News(models.Model):
             super(News, self).save(force_update=True)
     save.alters_data = True
 
-    @models.permalink
     def get_absolute_url(self):
-        return ('news_detail', [], {
+        return reverse('news_detail', kwargs={
             'year': '%04d' % self.date.year,
             'month': '%02d' % self.date.month,
             'day': '%02d' % self.date.day,

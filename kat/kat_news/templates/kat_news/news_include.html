@@ -1,25 +1,24 @@
 {% load pagination_tags %}
-{% load tagging_tags %}
-<div class="news-list">
-  {% autopaginate latest 10 %}
-    {% if latest %}
-        {% for object in latest %}
-			<div class="push"></div>
-            <div class="news-date">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</div>
-            <div class="news-title"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></div>
-            <div class="news-short">{{ object.short|safe }} <small>[<a href="{{ object.get_absolute_url }}">читать полностью</a>]</small></div>
-			{% tags_for_object object as tag_list %}
-			{% if tag_list %}
-				<div class="news-tags"><ul>
-				{% for tag in tag_list %}
-					<li><a href="/news/tag/{{ tag }}/">{{ tag }}</a></li>
-				{% endfor %}
-				</ul></div>
-				<div class="push"></div>
-			{% endif %}
+  {% autopaginate object_list 10 %}
+    {% if object_list %}
+        {% for object in object_list %}
+        <div class="span8">
+          <h4><strong><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></strong></h4>
+            {{ object.short|safe }} <small>[<a href="{{ object.get_absolute_url }}">читать полностью</a>]</small>
+          <div>
+            <span class="badge badge-success">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</span>
+            <div class="pull-right">
+			        {% if object.tags.all %}
+				          {% for tag in object.tags.all %}
+					          <span class="label"><a href="/news/tag/{{ tag.slug }}/">{{ tag.name }}</a></span>
+				          {% endfor %}
+        			{% endif %}
+             </div>
+          </div>
+        <hr>
+        </div>
         {% endfor %}
 	{% paginate %}
     {% else %}
-        <div class="news-empty">Нет новостей</div>
+        <div class="span7">Нет новостей</div>
     {% endif %}
-</div>

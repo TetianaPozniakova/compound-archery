@@ -6,9 +6,9 @@
     <div class="news-paginator">
 		<ul>
         {% for date in date_list %}
-            <li><a href="{% url news_archive_month year date|date:"m" %}">{{ date|date:"F" }}</a></li>
+            <li><a href="{% url "news_archive_month" date|date:"Y" date|date:"m" %}">{{ date|date:"F" }}</a></li>
         {% endfor %}
-			<li><a href="{% url news_archive_index %}">Все новости</a></li>
+			<li><a href="{% url "news_archive_index" %}">Все новости</a></li>
 		</ul>
     </div>
 {% endblock %}
