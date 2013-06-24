@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import *
+from django.conf.urls import patterns, url
 from kat_news.models import News
 from django.views.generic.dates import *
 from kat_news.views import *

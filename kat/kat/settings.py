@@ -123,6 +123,10 @@ WSGI_APPLICATION = 'kat.wsgi.application'
 import os
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)
 
+THUMBNAIL_BACKEND = "inline_media.sorl_backends.AutoFormatBackend"
+
+THUMBNAIL_FORMAT = "JPEG"
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,6 +136,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.comments',
     'django.contrib.admin',
+    'inline_media',
+    'sorl.thumbnail',
+    'tagging',
     'taggit',
     'pagination',
     'gencal',
