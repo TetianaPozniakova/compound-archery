@@ -4,21 +4,21 @@ from kat_news.models import News
 from taggit.models import Tag
 
 
-class ArticleYearArchiveView(YearArchiveView):
+class NewsYearArchiveView(YearArchiveView):
     queryset = News.objects.all()
     date_field = "date"
     make_object_list = True
     allow_future = True
 
 
-class ArticleMonthArchiveView(MonthArchiveView):
+class NewsMonthArchiveView(MonthArchiveView):
     queryset = News.objects.all()
     date_field = "date"
     make_object_list = True
     allow_future = True
 
 
-class ArticleDayArchiveView(DayArchiveView):
+class NewsDayArchiveView(DayArchiveView):
     queryset = News.objects.all()
     date_field = "date"
     make_object_list = True
