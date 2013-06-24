@@ -18,9 +18,9 @@ if news_settings.ENABLE_NEWS_ARCHIVE_INDEX:
 
 if news_settings.ENABLE_NEWS_DATE_ARCHIVE:
     urlpatterns += patterns('',
-        url(r'^archive/(?P<year>\d{4})/$', ArticleYearArchiveView.as_view(), name='news_archive_year'),
-        url(r'^archive/(?P<year>\d{4})-(?P<month>\d{2})/$', ArticleMonthArchiveView.as_view(month_format='%m'), name='news_archive_month'),
-        url(r'^archive/(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})/$', ArticleDayArchiveView.as_view(), name='news_archive_day'),
+        url(r'^archive/(?P<year>\d{4})/$', NewsYearArchiveView.as_view(), name='news_archive_year'),
+        url(r'^archive/(?P<year>\d{4})-(?P<month>\d{2})/$', NewsMonthArchiveView.as_view(month_format='%m'), name='news_archive_month'),
+        url(r'^archive/(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})/$', NewsDayArchiveView.as_view(), name='news_archive_day'),
     )
 
 

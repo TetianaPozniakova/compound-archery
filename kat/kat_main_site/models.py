@@ -23,8 +23,8 @@ class Article(models.Model):
     class Meta:
         ordering = ('-article_publish_date',)
 
-    def __str__(self):
-        return '%s' % self.article_title
+    def __unicode__(self):
+        return self.article_title
 
     def get_absolute_url(self):
         return reverse('article-detail', kwargs={'year': self.article_publish_date.year,
