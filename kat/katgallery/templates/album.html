@@ -1,0 +1,29 @@
+{% extends 'gbase.html' %}
+{% load extras %}
+{% load i18n %}
+{% load pagination_tags %}
+{% block content %}
+
+    <div id="wrapper">
+    <a href='{% url katgallery.views.gallery %}' ><img alt="Back to Gallery" title="Back" src="/media/images/arrow-back.png"></a>
+	<a href='{{ album.GetHtmlLink.href }}' target='_blank'><img alt="Show in Google Picasa" title="Show in Google Picasa" src="/media/images/picasa.png""></a>
+    <div class="album-title"> {{ album.title.text }} </div>
+	{% autopaginate photos 12 %}
+        {% for photo in photos %}
+            <ul class="thumbnails">
+            <li  class="span3">
+                <div class="thumbnail">
+                <a style='{% thumbnail_style photo %}' rel="prettyPhoto[pp_gal]" href='{{ photo.content.src }}'>
+                    <img style='{% thumbnail_style photo %}'
+                            {% if photo.title %}
+                                alt='{{ photo.title.text }}'
+                            {% endif %}
+                            src='{%  thumbnail_url photo %}'>
+                </a>
+                </div>
+            </li>
+            </ul>
+        {% endfor %}
+		{% paginate %}
+    </div>
+{% endblock %}

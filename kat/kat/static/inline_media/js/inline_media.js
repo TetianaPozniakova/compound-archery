@@ -31,6 +31,20 @@ function fanPictureSet3(divid) {
 
 }
 
+var prettyparams = {
+        animation_speed: 'fast',
+        slideshow: 3000,
+        autoplay_slideshow: false,
+        opacity: 0.7,
+        show_title: false,
+        allow_resize: true,
+        default_width: 600,
+        default_height: 480,
+        counter_separator_label: '/',
+        overlay_gallery: true,
+        changepicturecallback: function() {$pp_overlay.css({'height':$(document).height()})},
+        };
+
 $(document).ready(function() {
     $('.inline-ps3').each(function() {
 	fanPictureSet3($(this).attr("id"));
@@ -38,6 +52,6 @@ $(document).ready(function() {
     $('.inline-ps2').each(function() {
 	fanPictureSet2($(this).attr("id"));
     });
-    $("A[rel^='pictureset']").prettyPhoto({social_tools:false});
-    $("A.picture").prettyPhoto({social_tools:false});
+    $("a[rel^='pictureset']").prettyPhoto(prettyparams);
+    $("a.picture").prettyPhoto({social_tools:false});
 });
