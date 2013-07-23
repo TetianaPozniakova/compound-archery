@@ -31,3 +31,13 @@ class Article(models.Model):
                  'month': int(self.article_publish_date.strftime('%m').lower()),
                  'day': self.article_publish_date.day,
                  'slug': self.article_slug})
+
+
+class CalendarEvent(models.Model):
+    event_title = models.CharField(max_length=150)
+    event_start_date = models.DateTimeField(default=datetime.now)
+    event_end_date = models.DateTimeField(default=datetime.now)
+    #TODO: add choice field to select type of the competition in order to color cells on the calendar
+
+    def __unicode__(self):
+        return "%s: from %s to %s" % (self.event_title, self.event_start_date, self.event_end_date)

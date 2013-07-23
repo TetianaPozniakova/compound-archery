@@ -1,0 +1,22 @@
+#calendar {
+   margin: 0;
+   padding: 0;
+   /*width: 600px;*/
+  /*border-top: 1px solid #999;*/
+  /*border-left: 1px solid #999;*/
+}
+
+
+#calendar td {
+   list-style-position: inside;
+   font-weight: bold;
+   width: 76px;
+   height: 76px;
+   /*border: 1px solid #999;*/
+   float: left;
+   /*background-color: #fff;*/
+    border-top: 1px solid #999;
+   padding: 5px;
+   overflow: hidden;
+}
+

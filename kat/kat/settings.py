@@ -127,6 +127,21 @@ THUMBNAIL_BACKEND = "inline_media.sorl_backends.AutoFormatBackend"
 
 THUMBNAIL_FORMAT = "JPEG"
 
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced",
+    'theme_advanced_toolbar_location': "top",
+    'remove_linebreaks': False,
+    'convert_urls': False,
+    'width': '100%',
+    'height': '300px',
+    'paste_auto_cleanup_on_paste': True,
+    'theme_advanced_buttons1': "formatselect, separator, bold, italic, underline, hr, separator, link, unlink,\
+                                     separator, image, separator, bullist, numlist, separator, undo, redo,",
+    'theme_advanced_buttons2': " fontselect, fontsizeselect, forecolor, backcolor, blockquote ",
+    'theme_advanced_buttons3': "",
+    'theme_advanced_blockformats': "p,h1,h2,h3,blockquote"
+}
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -138,11 +153,13 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'inline_media',
     'sorl.thumbnail',
+    'tinymce',
     'tagging',
     'taggit',
     'pagination',
-    'gencal',
     'kat_news',
+    'gdata',
+    'katgallery',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'kat_main_site',
@@ -193,3 +210,5 @@ ENABLE_NEWS_LIST = getattr(settings, 'ENABLE_NEWS_LIST', False)
 ENABLE_NEWS_ARCHIVE_INDEX = getattr(settings, 'ENABLE_NEWS_ARCHIVE_INDEX', True)
 ENABLE_NEWS_DATE_ARCHIVE = getattr(settings, 'ENABLE_NEWS_DATE_ARCHIVE', True)
 
+# Picasagallery settings
+PICASAGALLERY_USER = 'nightbat@gothic.com.ua'
