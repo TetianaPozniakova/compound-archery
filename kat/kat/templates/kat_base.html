@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Kyiv Archery Team :: {% block title %}{% endblock %}</title>
+      <script src="/media/js/jquery-latest.js"></script>
+      <script src="/media/js/jquery.bxslider.min.js"></script>
+      <script src="/media/js/logo.js"></script>
+		  {% block head %}{% endblock %}
+      <link href="/media/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+      <link href="/media/css/jquery.bxslider.css" rel="stylesheet"/>
+      <link href="/media/css/style.css" rel="stylesheet" type="text/css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  {% load staticfiles %}
+	</head>
+	<body>
+    <script src="/media/bootstrap/js/bootstrap.js"></script>
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Тренування</a>
+                <ul class="dropdown-menu">
+                  <li><a href="/articles/">Статті</a></li>
+                  <li><a href="/literature/">Література</a></li>
+                  <li><a href="/equipment/"">Інвентар</a></li>
+                  <li><a href="/clubs/"">Клуби</a></li>
+                  <li><a href="/faq/">FAQ</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="#"  class="dropdown-toggle" data-toggle="dropdown">Змагання</a>
+              <ul class="dropdown-menu">
+                <li><a href="/calendar/">Календар</a></li>
+                <li><a href="/records/">Рекорди</a></li>
+                <li><a href="/qualifying/">Нормативи</a></li>
+                <li><a href="/fita/">Статут FITA</a></li>
+              </ul>
+             </li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Клуб</a>
+                 <ul class="dropdown-menu">
+                    <li><a href="/news/">Новини</a></li>
+                    <li><a href="/photos/">Фотографії</a></li>
+                    <li><a href="/hall_of_fame/">Дошка пошани</a></li>
+                    <li><a href="/flea_market/">Барахолка</a></li>
+                 </ul>
+            </li>
+            <li ><a href="/contacts/">Контакти</a></li>
+            <li ><a href="/links/">Посилання</a></li>
+          </ul>
+        </div>
+      </div>
+        <div class="row-fluid">
+            <div class="span12">
+              <ul class="bxslider">
+                  <li><img src="{% static "kat_main_site/logo1.jpg" %}" alt="Logo1"/></li>
+                  <li><img src="{% static "kat_main_site/logo2.jpg" %}" alt="Logo2"/></li>
+              </ul>
+          </div>
+		    </div>
+        <div class="container">
+            <div class="span8">{% block content %}{% endblock %}</div>
+            <div class="span4">
+                <div class="well">
+                    Sidebar
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+            Дизайн и реализация: 3PS. Copyright &copy; 2013, <a href="http://3ps.if.ua">3PS</a>.
+        </footer>
+    </body>
+</html>

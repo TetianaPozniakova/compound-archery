@@ -76,6 +76,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    #os.path.join(PROJECT_ROOT, 'static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -121,7 +122,7 @@ ROOT_URLCONF = 'kat.urls'
 WSGI_APPLICATION = 'kat.wsgi.application'
 
 import os
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
 
 THUMBNAIL_BACKEND = "inline_media.sorl_backends.AutoFormatBackend"
 
@@ -132,13 +133,14 @@ TINYMCE_DEFAULT_CONFIG = {
     'theme_advanced_toolbar_location': "top",
     'remove_linebreaks': False,
     'convert_urls': False,
+    'plugins': "preview",
     'width': '100%',
     'height': '300px',
     'paste_auto_cleanup_on_paste': True,
     'theme_advanced_buttons1': "formatselect, separator, bold, italic, underline, hr, separator, link, unlink,\
                                      separator, image, separator, bullist, numlist, separator, undo, redo,",
     'theme_advanced_buttons2': " fontselect, fontsizeselect, forecolor, backcolor, blockquote ",
-    'theme_advanced_buttons3': "",
+    'theme_advanced_buttons3': "preview",
     'theme_advanced_blockformats': "p,h1,h2,h3,blockquote"
 }
 
