@@ -3,12 +3,12 @@
 {% block content_title %}Новости за {{ year }} год{% endblock %}
 {% block content %}
     {% include "kat_news/news_include.html" %}
-    <div class="news-paginator">
-		<ul>
+     <div class="pagination pagination-small pagination-centered">
+      <ul>
         {% for date in date_list %}
-            <li><a href="{% url "news_archive_month" date|date:"Y" date|date:"m" %}">{{ date|date:"F" }}</a></li>
+          <li><a href="{% url "news_archive_month" date|date:"Y" date|date:"m" %}">{{ date|date:"F" }}</a></li>
         {% endfor %}
-			<li><a href="{% url "news_archive_index" %}">Все новости</a></li>
-		</ul>
-    </div>
+        <li><a href="{% url "news_archive_index" %}">Все новости</a></li>
+      </ul>
+     </div>
 {% endblock %}

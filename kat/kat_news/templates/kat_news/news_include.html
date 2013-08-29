@@ -2,7 +2,6 @@
   {% autopaginate object_list 10 %}
     {% if object_list %}
         {% for object in object_list %}
-        <div class="span8">
           <h4><strong><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></strong></h4>
             {{ object.short|safe }} <small>[<a href="{{ object.get_absolute_url }}">читать полностью</a>]</small>
           <div>
@@ -10,13 +9,12 @@
             <div class="pull-right">
 			        {% if object.tags.all %}
 				          {% for tag in object.tags.all %}
-					          <span class="label"><a href="/news/tag/{{ tag.slug }}/">{{ tag.name }}</a></span>
+					          <a class="label label-warning" href="/news/tag/{{ tag.slug }}/">{{ tag.name }}</a>
 				          {% endfor %}
         			{% endif %}
              </div>
           </div>
-        <hr>
-        </div>
+        <hr class="news-hr">
         {% endfor %}
 	{% paginate %}
     {% else %}

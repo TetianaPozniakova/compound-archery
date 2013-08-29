@@ -19,10 +19,15 @@
 
 .container {
 	width: 1000px;
-    margin: 40px auto 0;
-    background: #fffce8;
+  margin: 40px auto 0;
+  background: #fffce8;
 	/*background-image:url('/media/images/');*/
 	background-repeat:repeat;
+}
+
+.logo-container {
+  margin: 0 6px 0;
+  width: 988;
 }
 
 #footer {
@@ -54,4 +59,18 @@
 
 .news-date {
 
+}
+
+.news-hr {
+  height: 1px;
+  background: #333;
+  background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+  background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+  background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+  background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+
+ul.noindent {
+  margin: 0;
+  padding: 0;
 }
