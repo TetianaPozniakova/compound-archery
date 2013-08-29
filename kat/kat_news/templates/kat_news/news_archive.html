@@ -5,7 +5,7 @@
     {% include "kat_news/news_include.html" %}
 
 	<!-- Years list -->
-    <div class="news-paginator">
+    <div class="pagination pagination-small pagination-centered">
 		<ul>
         {% for date in date_list %}
             <li><a href="{% url "news_archive_year" date|date:"Y" %}">{{ date|date:"Y" }}</a></li>

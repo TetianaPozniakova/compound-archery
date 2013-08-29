@@ -3,7 +3,7 @@
 {% block content_title %}Новости за {{ month|date:"F Y" }} года{% endblock %}
 {% block content %}
     {% include "kat_news/news_include.html" %}
-	<div class="news-paginator">
+	<div class="pagination pagination-small pagination-centered">
 		<ul><li><a href="{% url "news_archive_index" %}">Все новости</a></li></ul>
 	</div>
 {% endblock %}
