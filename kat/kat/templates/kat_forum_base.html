@@ -1,0 +1,12 @@
+{% extends "kat_base.html" %}
+{% block head %}
+  <link href="/media/css/pybbm-style.css" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block global_content %}
+  {% block breadcrumb %}
+  {% endblock breadcrumb %}
+  <div class="forum_container">
+    {% block content %}
+    {% endblock %}
+  </div>
+{% endblock %}
