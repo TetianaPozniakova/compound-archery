@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     # url(r'^kat/', include('kat.foo.urls')),
     (r'^', include('kat_main_site.urls')),
     (r'^news/', include('kat_news.urls')),
+    (r'^forum/', include('pybb.urls', namespace='pybb')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

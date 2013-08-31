@@ -3,7 +3,7 @@
 {% block title %}Новости за {{ day|date:"j M Y" }} года{% endblock %}
 {% block content_title %}Новости за {{ day|date:"j M Y" }} года{% endblock %}
 
-{% block content %}
+{% block global_content %}
     {% include "kat_news/news_include.html" %}
 	<div class="news-list"><a href="{% url "news_archive_index" %}">Все новости</a></div>
 {% endblock %}

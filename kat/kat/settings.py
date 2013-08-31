@@ -104,6 +104,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'pagination.middleware.PaginationMiddleware',
+    'pybb.middleware.PybbMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -114,7 +115,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
-    'django.core.context_processors.static',)
+    'django.core.context_processors.static',
+    'pybb.context_processors.processor',)
 
 ROOT_URLCONF = 'kat.urls'
 
@@ -144,6 +146,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'theme_advanced_blockformats': "p,h1,h2,h3,blockquote"
 }
 
+PYBB_TEMPLATE = 'kat_forum_base.html'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -153,9 +157,18 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.comments',
     'django.contrib.admin',
+    'south',
     'inline_media',
     'sorl.thumbnail',
     'tinymce',
+    'pybb',
+    'pytils',
+    'account',
+    'pure_pagination',
+    'captcha',
+    'pinax_theme_bootstrap_account',
+    'pinax_theme_bootstrap',
+    'django_forms_bootstrap',
     'tagging',
     'taggit',
     'pagination',

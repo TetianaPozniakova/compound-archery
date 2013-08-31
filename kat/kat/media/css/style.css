@@ -17,8 +17,13 @@
   border: 1px solid #efb73f;
 }
 
+body,html{
+ height: 100%;
+}
+
 .container {
 	width: 1000px;
+  min-height: 95%;
   margin: 40px auto 0;
   background: #fffce8;
 	/*background-image:url('/media/images/');*/
@@ -32,6 +37,7 @@
 
 #footer {
 	height: 25px;
+  margin-top:-25px;
 	background: #fefbaf;
  	border-top: 1px solid #efb73f;
 	color: #261001;
