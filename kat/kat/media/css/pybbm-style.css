@@ -1,23 +1,37 @@
 .forum_container{
-  margin: 0 auto 50px;
+  /*margin-bottom: 20px;*/
+  /*background: #fffce8;*/
 }
 
 .category h1{
-  font-size:1.2em;
-  font-weight:400;
-  border-radius:5px;
+  font-size: 1.2em;
+  font-weight: 400;
+  border-radius: 5px;
+}
+
+.category h3{
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 th.forum-topic-count,
 th.forum-post-count,
 th.topic-post-count,
-th.topic-view-count { text-align: center }
-td.topic-name { line-height: 16px }
+th.topic-view-count {
+  text-align: center
+}
+
+td.topic-name {
+  line-height: 16px
+}
+
 .topic-name-header {
     display: inline-block;
     line-height: 22px;
     margin: 0 4px 3px 0;
 }
+
 td.forum-topic-count,
 td.forum-post-count,
 td.topic-post-count,
@@ -26,12 +40,14 @@ td.topic-view-count {
     text-align: center;
     width: 10%;
 }
+
 td.forum-topic-count,
 td.forum-post-count,
 td.forum-last-post,
 td.topic-post-count,
 td.topic-view-count,
 td.topic-last-post { vertical-align: middle }
+
 td.forum-last-post,
 td.topic-last-post {
     font-size: .8em;

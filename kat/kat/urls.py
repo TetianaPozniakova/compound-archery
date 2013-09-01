@@ -1,6 +1,10 @@
-from django.conf.urls import patterns, include
+from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
+from kat_main_site.forms import SignupFormWithCaptcha
+
+from account.views import ChangePasswordView, SignupView, LoginView
+
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -13,6 +17,13 @@ urlpatterns = patterns('',
     # url(r'^kat/', include('kat.foo.urls')),
     (r'^', include('kat_main_site.urls')),
     (r'^news/', include('kat_news.urls')),
+    url(r"^accounts/password/$", ChangePasswordView.as_view(), name="auth_password_change"),
+    url(r"^accounts/signup/$", SignupView.as_view(form_class=SignupFormWithCaptcha), name="registration_register"),
+    url(r"^accounts/login/$", LoginView.as_view(), name="auth_login"),
+
+    (r'^accounts/', include('account.urls')),
+    (r'^captcha/', include('captcha.urls')),
+
     (r'^forum/', include('pybb.urls', namespace='pybb')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
