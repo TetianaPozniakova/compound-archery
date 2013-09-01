@@ -5,7 +5,8 @@ from kat_main_site.views import main_page, ArticleDetailedView, month
 from kat_main_site.models import Article
 
 urlpatterns = patterns('',
-    (r'^$', 'kat_main_site.views.main_page'),
+    # (r'^$', 'kat_main_site.views.main_page'),
+    (r'^$', include('kat_news.urls')),
 
     # Static pages
     (r'^contacts/', TemplateView.as_view(template_name="contacts_page.html")),

@@ -21,9 +21,9 @@ body,html{
  height: 100%;
 }
 
-.container {
+.main_container {
 	width: 1000px;
-  min-height: 95%;
+  min-height: 100%;
   margin: 40px auto 0;
   background: #fffce8;
 	/*background-image:url('/media/images/');*/
@@ -37,12 +37,14 @@ body,html{
 
 #footer {
 	height: 25px;
-  margin-top:-25px;
+  margin-top:-30px;
 	background: #fefbaf;
  	border-top: 1px solid #efb73f;
 	color: #261001;
 	text-align: center;
 	padding-top: 4px;
+  /*bottom:0;*/
+  clear:both;
 }
 
 #footer a:link, a:visited{
