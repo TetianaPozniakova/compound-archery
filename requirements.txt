@@ -25,7 +25,8 @@ pybbm>=0.14.2
 
 django-inline-media>=1.2b2
 django-pagination>=1.0.7
-django-tagging==0.4.dev1
+#django-tagging==0.4.dev1
+svn+http://django-tagging.googlecode.com/svn/trunk/
 django-taggit==0.10a1
 django-taggit-autosuggest>=0.2
 django-taggit-templatetags>=0.4.6dev
