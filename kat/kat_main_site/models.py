@@ -2,6 +2,8 @@ from django.db import models
 from inline_media.fields import TextFieldWithInlines
 from datetime import datetime
 from django.core.urlresolvers import reverse
+from django.db.models.fields import TextField as HTMLField
+from django.core.validators import MaxLengthValidator
 
 
 class PublicManager(models.Manager):
@@ -15,7 +17,7 @@ class Article(models.Model):
     article_title = models.CharField(max_length=200)
     article_slug = models.SlugField(unique_for_date='article_publish_date')
     article_abstract = models.TextField()
-    article_body = TextFieldWithInlines()
+    article_body = HTMLField(validators=[MaxLengthValidator(14000)], default='', blank=False)
     article_publish_date = models.DateTimeField(default=datetime.now)
 
     objects = PublicManager()
