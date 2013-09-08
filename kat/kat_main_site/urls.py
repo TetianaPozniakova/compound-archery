@@ -1,5 +1,5 @@
 __author__ = 'noctule'
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 from django.views.generic import TemplateView, ListView, DateDetailView
 from kat_main_site.views import main_page, ArticleDetailedView, month
 from kat_main_site.models import Article
