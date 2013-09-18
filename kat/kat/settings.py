@@ -17,7 +17,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'compound_archery',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'django_postgre',
+        'USER': 'compound_archery_postgre',
         'PASSWORD': 'I2l0c1a3',
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
@@ -26,7 +26,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -129,8 +129,6 @@ WSGI_APPLICATION = 'kat.wsgi.application'
 import os
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
 
-THUMBNAIL_BACKEND = "inline_media.sorl_backends.AutoFormatBackend"
-
 THUMBNAIL_FORMAT = "JPEG"
 
 TINYMCE_DEFAULT_CONFIG = {
@@ -157,13 +155,13 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    #Somehow example.com was deleted from somewhere
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.comments',
     'django.contrib.admin',
     'south',
-    #'inline_media',
     'sorl.thumbnail',
     'tinymce',
     'pybb',
@@ -214,18 +212,7 @@ LOGGING = {
     }
 }
 
-# If  NEWS_TAGGING set to True, but tagging application does not installed,
-# set NEWS_TAGGING to False
-
-if 'tagging' in settings.INSTALLED_APPS:
-    NEWS_TAGGING = getattr(settings, 'NEWS_TAGGING', True)
-else:
-    try:
-        import tagging
-        NEWS_TAGGING = getattr(settings, 'NEWS_TAGGING', False)
-    except ImportError:
-        NEWS_TAGGING = False
-
+NEWS_TAGGING = getattr(settings, 'NEWS_TAGGING', True)
 ENABLE_NEWS_LIST = getattr(settings, 'ENABLE_NEWS_LIST', False)
 ENABLE_NEWS_ARCHIVE_INDEX = getattr(settings, 'ENABLE_NEWS_ARCHIVE_INDEX', True)
 ENABLE_NEWS_DATE_ARCHIVE = getattr(settings, 'ENABLE_NEWS_DATE_ARCHIVE', True)
