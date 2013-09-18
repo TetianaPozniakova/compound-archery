@@ -3,10 +3,9 @@ from kat_main_site.models import Article, CalendarEvent
 #admin.site.register()
 
 from django.contrib import admin
-from inline_media.admin import AdminTextFieldWithInlinesMixin
 
 
-class ArticleAdmin(AdminTextFieldWithInlinesMixin, admin.ModelAdmin):
+class ArticleAdmin(admin.ModelAdmin):
     list_display = ('article_title', 'article_publish_date')
     list_filter = ('article_publish_date',)
     search_fields = ('article_title', 'article_abstract', 'article_body')

@@ -1,9 +1,12 @@
 from django.db import models
-from inline_media.fields import TextFieldWithInlines
 from datetime import datetime
 from django.core.urlresolvers import reverse
-from django.db.models.fields import TextField as HTMLField
 from django.core.validators import MaxLengthValidator
+
+try:
+    from tinymce.models import HTMLField
+except ImportError:
+    from django.db.models.fields import TextField as HTMLField
 
 
 class PublicManager(models.Manager):

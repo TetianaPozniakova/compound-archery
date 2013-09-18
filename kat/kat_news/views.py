@@ -2,24 +2,37 @@
 from django.views.generic.dates import *
 from kat_news.models import News
 from taggit.models import Tag
+from django.db import transaction
 
 
 class NewsYearArchiveView(YearArchiveView):
-    queryset = News.objects.all()
+    try:
+        queryset = News.objects.all()
+    except IntegrityError, DatabaseError:
+        transaction.rollback()
+        queryset = News.objects.None()
     date_field = "date"
     make_object_list = True
     allow_future = True
 
 
 class NewsMonthArchiveView(MonthArchiveView):
-    queryset = News.objects.all()
+    try:
+        queryset = News.objects.all()
+    except IntegrityError, DatabaseError:
+        transaction.rollback()
+        queryset = News.objects.None()
     date_field = "date"
     make_object_list = True
     allow_future = True
 
 
 class NewsDayArchiveView(DayArchiveView):
-    queryset = News.objects.all()
+    try:
+        queryset = News.objects.all()
+    except IntegrityError, DatabaseError:
+        transaction.rollback()
+        queryset = News.objects.None()
     date_field = "date"
     make_object_list = True
     allow_future = True
@@ -40,10 +53,10 @@ class TagListView(ArchiveIndexView):
         """
         return News.objects.filter(tags__name=self.kwargs['tag_slug'])
 
-    # def get_context_data(self, **kwargs):
-    #     """
-    #     Include the tag in the context
-    #     """
-    #     context_data = super(TagListView, self).get_context_data(self, **kwargs)
-    #     context_data['tag'] = Tag.objects.get(slug=self.kwargs['tag_slug'])
-    #     return context_data
+    def get_context_data(self, **kwargs):
+        """
+        Include the tag in the context
+        """
+        context_data = super(TagListView, self).get_context_data(self, **kwargs)
+        context_data['tag'] = Tag.objects.get(slug=self.kwargs['tag_slug'])
+        return context_data

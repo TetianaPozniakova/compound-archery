@@ -4,7 +4,7 @@ from django import forms
 from kat_news.models import News
 from kat import settings as news_settings
 if news_settings.NEWS_TAGGING:
-    from tagging.forms import TagField
+    from taggit.forms import TagField
 
 
 class NewsForm(forms.ModelForm):
