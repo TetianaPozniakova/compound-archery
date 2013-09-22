@@ -2,37 +2,24 @@
 from django.views.generic.dates import *
 from kat_news.models import News
 from taggit.models import Tag
-from django.db import transaction
 
 
 class NewsYearArchiveView(YearArchiveView):
-    try:
-        queryset = News.objects.all()
-    except IntegrityError, DatabaseError:
-        transaction.rollback()
-        queryset = News.objects.None()
+    queryset = News.objects.all()
     date_field = "date"
     make_object_list = True
     allow_future = True
 
 
 class NewsMonthArchiveView(MonthArchiveView):
-    try:
-        queryset = News.objects.all()
-    except IntegrityError, DatabaseError:
-        transaction.rollback()
-        queryset = News.objects.None()
+    queryset = News.objects.all()
     date_field = "date"
     make_object_list = True
     allow_future = True
 
 
 class NewsDayArchiveView(DayArchiveView):
-    try:
-        queryset = News.objects.all()
-    except IntegrityError, DatabaseError:
-        transaction.rollback()
-        queryset = News.objects.None()
+    queryset = News.objects.all()
     date_field = "date"
     make_object_list = True
     allow_future = True
