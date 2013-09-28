@@ -13,10 +13,10 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.alwaysdata.com'
 EMAIL_PORT = 587
-EMAIL_HOST_PASSWORD = 'Archery2013'
-EMAIL_HOST_USER = 'compound.archeryua'
+EMAIL_HOST_PASSWORD = 'Archery2013SMTP'
+EMAIL_HOST_USER = 'admin@compound-archery.com.ua'
 #EMAIL_SUBJECT_PREFIX = 'something'
 EMAIL_USE_TLS = True
 
