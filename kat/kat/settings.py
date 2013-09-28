@@ -4,6 +4,7 @@ from django.conf import settings
 
 
 DEBUG = True
+#DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -11,6 +12,13 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = 'Archery2013'
+EMAIL_HOST_USER = 'compound.archeryua'
+#EMAIL_SUBJECT_PREFIX = 'something'
+EMAIL_USE_TLS = True
 
 DATABASES = {
     'default': {
