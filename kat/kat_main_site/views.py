@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.views.generic import TemplateView, ListView, DateDetailView
-from kat_main_site.models import Article, CalendarEvent
+from models import Article, CalendarEvent
 from datetime import date, datetime, timedelta
 import calendar
 import time
