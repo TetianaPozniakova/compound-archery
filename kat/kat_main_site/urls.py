@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     (r'^$', include('kat_news.urls')),
 
     # Static pages
-    (r'^contacts/', TemplateView.as_view(template_name="contacts_page.html")),
+    (r'^contacts/', TemplateView.as_view(template_name="kat_contacts_page.html")),
 
 )
 

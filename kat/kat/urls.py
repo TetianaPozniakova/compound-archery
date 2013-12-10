@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
 from kat_main_site.forms import SignupFormWithCaptcha
+from kat_main_site.views import video_list
 
 from account.views import ChangePasswordView, SignupView, LoginView
 
@@ -17,6 +18,10 @@ urlpatterns = patterns('',
     # url(r'^kat/', include('kat.foo.urls')),
     (r'^', include('kat_main_site.urls')),
     (r'^news/', include('kat_news.urls')),
+    (r'^gallery/', include('katgallery.urls')),
+    (r'^video/$', video_list),
+
+
     url(r"^accounts/password/$", ChangePasswordView.as_view(), name="auth_password_change"),
     url(r"^accounts/signup/$", SignupView.as_view(form_class=SignupFormWithCaptcha), name="registration_register"),
     url(r"^accounts/login/$", LoginView.as_view(), name="auth_login"),

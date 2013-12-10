@@ -2,10 +2,10 @@
 {% load extras %}
 {% load i18n %}
 {% load pagination_tags %}
-{% block content %}
+{% block global_content %}
 
     <div id="wrapper">
-    <a href='{% url katgallery.views.gallery %}' ><img alt="Back to Gallery" title="Back" src="/media/images/arrow-back.png"></a>
+    <a href='{% url "katgallery.views.gallery" %}' ><img alt="Back to Gallery" title="Back" src="/media/images/arrow-back.png"></a>
 	<a href='{{ album.GetHtmlLink.href }}' target='_blank'><img alt="Show in Google Picasa" title="Show in Google Picasa" src="/media/images/picasa.png""></a>
     <div class="album-title"> {{ album.title.text }} </div>
 	{% autopaginate photos 12 %}
