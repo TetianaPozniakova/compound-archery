@@ -65,8 +65,18 @@ body,html{
           border-radius: 20px;
 }
 
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .news-date {
 
+}
+
+.form-actions {
+  background-color: transparent;
 }
 
 .news-hr {
@@ -81,4 +91,15 @@ body,html{
 ul.noindent {
   margin: 0;
   padding: 0;
+}
+
+.thumbnails {
+  display: inline-block;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.thumbnails > li {
+  display: inline-block;
+  float: none;
 }

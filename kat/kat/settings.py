@@ -20,14 +20,15 @@ EMAIL_HOST_USER = 'admin@compound-archery.com.ua'
 #EMAIL_SUBJECT_PREFIX = 'something'
 EMAIL_USE_TLS = True
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'noctule_compound_archery',                      # Or path to database file if using sqlite3.
+        'NAME': 'compound_archery',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'noctule_compound_archery',
+        'USER': 'compound_archery_postgre',
         'PASSWORD': 'I2l0c1a3',
-        'HOST': 'postgresql1.alwaysdata.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
 }
@@ -228,6 +229,9 @@ ENABLE_NEWS_DATE_ARCHIVE = getattr(settings, 'ENABLE_NEWS_DATE_ARCHIVE', True)
 
 # Picasagallery settings
 PICASAGALLERY_USER = 'nightbat@gothic.com.ua'
+PICASAGALLERY_PHOTO_THUMBSIZE = '220'
+PICASAGALLERY_PHOTO_IMGMAXSIZE = '1024'
+PICASAGALLERY_ALBUM_THUMBSIZE = '220c'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
