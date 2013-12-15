@@ -4,7 +4,7 @@
 {% block content_title %}{{ object.title }}{% endblock %}
 
 {% block global_content %}
-    <div class="nbadge badge-success">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</div>
+    <div class="badge badge-success">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</div>
     <div class="news-text">{{ object.text|safe }}</div>
     <div class="news-list"><a href="{% url "news_archive_index" %}">Все новости</a></div>
 {% endblock %}
