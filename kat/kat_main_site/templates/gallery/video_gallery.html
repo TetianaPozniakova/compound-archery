@@ -1,0 +1,20 @@
+{% extends "kat_base.html" %}
+{% load pagination_tags %}
+
+{% block title %}{% endblock %}
+{% block head %}{% endblock %}
+
+{% block global_content %}
+  {% autopaginate latest_video 3 %}
+    <ul class="thumbnails">
+      {% for video in latest_video %}
+        <li class="span8">
+          <div class="thumbnail">
+            <h5>{{ video.video_title }}</h5>
+            <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ video.video_id }}"></iframe>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+	{% paginate %}
+{% endblock %}
