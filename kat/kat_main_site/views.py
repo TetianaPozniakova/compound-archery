@@ -1,14 +1,17 @@
 # Create your views here.
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, render, redirect
 from django.template import RequestContext
 from django.views.generic import TemplateView, ListView, DateDetailView
-from models import Article, CalendarEvent
+from models import Article, CalendarEvent, Video
+from kat_news.models import News
 from datetime import date, datetime, timedelta
 import calendar
 import time
 
 
 def main_page(request):
+    if News.objects.all().count():
+        return redirect("/news/")
     return render_to_response('kat_main_page.html', RequestContext(request))
 
 
@@ -49,7 +52,8 @@ def month(request, year, month, change=None):
     for day in month_days:
         entries = current = False   # are there entries for this day; current day?
         if day:
-            entries = CalendarEvent.objects.filter(event_start_date__year=year, event_start_date__month=month, event_start_date__day=day)
+            entries = CalendarEvent.objects.filter(event_start_date__year=year, event_start_date__month=month,
+                                                   event_start_date__day=day)
             if day == nday and year == nyear and month == nmonth:
                 current = True
 
@@ -59,4 +63,9 @@ def month(request, year, month, change=None):
             week += 1
 
     return render_to_response("calendar/kat_calendar_month_view.html", dict(year=year, month=month,
-                        month_days=lst, mname=mnames[month-1]))
+                                                                            month_days=lst, mname=mnames[month-1]))
+
+
+def video_list(request):
+    latest_video = Video.objects.all().order_by('-date')
+    return render(request, "gallery/video_gallery.html", {"latest_video": latest_video})

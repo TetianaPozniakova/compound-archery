@@ -2,14 +2,12 @@ from django.conf import settings
 from gdata.photos.service import PhotosService
 
 
-PHOTO_THUMBSIZE = get('PICASAGALLERY_PHOTO_THUMBSIZE',  '128')
-ALBUM_THUMBSIZE = get('PICASAGALLERY_ALBUM_THUMBSIZE', '160c')
-PHOTO_IMGMAXSIZE = get('PICASAGALLERY_PHOTO_IMGMAXSIZE', '1024')
-
-
 def get(key, default):
     return getattr(settings, key, default)
 
+PHOTO_THUMBSIZE = get('PICASAGALLERY_PHOTO_THUMBSIZE',  '128')
+ALBUM_THUMBSIZE = get('PICASAGALLERY_ALBUM_THUMBSIZE', '160c')
+PHOTO_IMGMAXSIZE = get('PICASAGALLERY_PHOTO_IMGMAXSIZE', '1024')
 
 def get_albums():
     pws = PhotosService()
