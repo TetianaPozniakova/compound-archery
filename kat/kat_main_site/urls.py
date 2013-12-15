@@ -5,11 +5,30 @@ from kat_main_site.views import main_page, ArticleDetailedView, month
 from kat_main_site.models import Article
 
 urlpatterns = patterns('',
-    # (r'^$', 'kat_main_site.views.main_page'),
-    (r'^$', include('kat_news.urls')),
+    (r'^$', 'kat_main_site.views.main_page'),
+    (r'^news/', include('kat_news.urls')),
 
     # Static pages
-    (r'^contacts/', TemplateView.as_view(template_name="contacts_page.html")),
+    (r'^contacts/', TemplateView.as_view(template_name="kat_contacts_page.html")),
+
+    (r'^disciplines/', TemplateView.as_view(template_name="404.html")),
+    (r'^history/', TemplateView.as_view(template_name="sport/kat_history_page.html")),
+    (r'^development/', TemplateView.as_view(template_name="404.html")),
+    (r'^rules/', TemplateView.as_view(template_name="sport/kat_rules_page.html")),
+    (r'^literature/', TemplateView.as_view(template_name="sport/kat_literature_page.html")),
+    (r'^faq/', TemplateView.as_view(template_name="sport/kat_faq_page.html")),
+
+    (r'^ranking/', TemplateView.as_view(template_name="competitions/kat_rating_page.html")),
+    (r'^results/', TemplateView.as_view(template_name="competitions/kat_results_page.html")),
+    (r'^records/', TemplateView.as_view(template_name="competitions/kat_records_page.html")),
+    (r'^qualifying/', TemplateView.as_view(template_name="competitions/kat_qualifying_page.html")),
+
+    (r'^organization/', TemplateView.as_view(template_name="404.html")),
+    (r'^structure/', TemplateView.as_view(template_name="404.html")),
+    (r'^activities/', TemplateView.as_view(template_name="404.html")),
+    (r'^events/', TemplateView.as_view(template_name="404.html")),
+
+    (r'^links/', TemplateView.as_view(template_name="kat_links_page.html")),
 
 )
 
