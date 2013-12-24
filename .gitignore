@@ -1,2 +1,8 @@
 *.pyc
 /kat/.idea
+
+/kat/kat/dev_settings.py
+
+
+/kat/kat/prod_settings.py
+

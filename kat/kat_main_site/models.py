@@ -55,3 +55,22 @@ class Video(models.Model):
 
     def __unicode__(self):
         return self.video_title
+
+
+class Participant(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    middle_name = models.CharField(max_length=50)
+    sex =
+    birth_date = models.DateTimeField('birth date')
+
+
+class CompetitionRegistration(models.Model):
+    participant = ForeignKey()
+    participant_club = models.CharField(max_length=50)
+    participant_location = models.CharField(max_length=50)
+    tournament = ForeignKey()
+
+
+class Tournament(models.Model):
+    tournament_title = models.CharField(max_length=150)
