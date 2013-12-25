@@ -1,5 +1,5 @@
 __author__ = 'noctule'
-from kat_main_site.models import Article, CalendarEvent
+from models import Article, CalendarEvent, Participant, CompetitionRegistration, Tournament
 #admin.site.register()
 
 from django.contrib import admin
@@ -19,5 +19,22 @@ class CalendarEventAdmin(admin.ModelAdmin):
     list_display = ["event_title", "event_start_date", "event_end_date"]
     list_filter = ["event_start_date"]
 
+
+class ParticipantAdmin(admin.ModelAdmin):
+    list_display = ["last_name", "first_name", "middle_name"]
+
+
+class CompetitionRegistrationAdmin(admin.ModelAdmin):
+    list_display = ["tournament", "participant", "participant_club"]
+    list_filter = ["tournament"]
+
+
+class TournamentAdmin(admin.ModelAdmin):
+    list_display = ["tournament_title"]
+
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(CalendarEvent, CalendarEventAdmin)
+admin.site.register(Participant, ParticipantAdmin)
+admin.site.register(CompetitionRegistration, CompetitionRegistrationAdmin)
+admin.site.register(Tournament, TournamentAdmin)

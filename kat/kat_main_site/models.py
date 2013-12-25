@@ -61,16 +61,25 @@ class Participant(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     middle_name = models.CharField(max_length=50)
-    sex =
+    sex = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')))
     birth_date = models.DateTimeField('birth date')
+
+    def __unicode__(self):
+        return "%s %s %s" % (self.last_name, self.first_name, self.middle_name)
 
 
 class CompetitionRegistration(models.Model):
-    participant = ForeignKey()
+    participant = models.ForeignKey('Participant')
     participant_club = models.CharField(max_length=50)
     participant_location = models.CharField(max_length=50)
-    tournament = ForeignKey()
+    tournament = models.ForeignKey('Tournament')
+
+    def __unicode__(self):
+        return "%s %s (%s)" % (self.participant.last_name, self.participant.first_name, self.tournament.tournament_title)
 
 
 class Tournament(models.Model):
     tournament_title = models.CharField(max_length=150)
+
+    def __unicode__(self):
+        return self.tournament_title
