@@ -1,0 +1,93 @@
+{% extends "kat_base.html" %}
+
+{% load i18n %}
+
+{% block title %}Регистрация на Соревнования{% endblock %}
+{% block global_content %}
+
+<h3>Регистрация на Соревнования</h3><hr>
+    <form id="competition_register_form" method="post" action="{% url "account_signup" %}" autocapitalize="off" class="form-horizontal">
+
+		{% csrf_token %}
+<fieldset>
+        <div class="control-group">
+            <label class="control-label" for="comp_reg-last_name">Фамилия:</label>
+
+            <div class="controls">
+                <input type="text" name="last_name" id="comp_reg-last_name">
+            </div>
+        </div>
+
+          <div class="control-group">
+            <label class="control-label" for="comp_reg-first_name">Имя:</label>
+
+            <div class="controls">
+                <input type="text" name="first_name" id="comp_reg-first_name">
+            </div>
+        </div>
+
+            <div class="control-group">
+            <label class="control-label" for="comp_reg-middle_name">Отчество:</label>
+
+            <div class="controls">
+                <input type="text" name="middle_name" id="comp_reg-middle_name">
+            </div>
+        </div>
+
+              <div class="control-group">
+            <label class="control-label" for="comp_reg-sex">Пол:</label>
+
+            <div class="controls">
+              <label class="radio">
+              <input type="radio" name="sex" id="comp_reg-sex" value="male">Мужской
+                                     </label>
+              <label class="radio">
+              <input type="radio" name="sex" id="comp_reg-sex" value="female">Женский
+                                                        </label>
+            </div>
+        </div>
+
+              <div class="control-group">
+            <label class="control-label" for="comp_reg-birth_date">Дата Рождения:</label>
+
+            <div class="controls">
+                <input type="date" name="birth_date" id="comp_reg-birth_date">
+            </div>
+        </div>
+
+              <div class="control-group">
+            <label class="control-label" for="comp_reg-club">Спортивное общество:</label>
+
+            <div class="controls">
+                <input type="text" name="club" id="comp_reg-club">
+            </div>
+        </div>
+
+              <div class="control-group">
+            <label class="control-label" for="comp_reg-city">Город:</label>
+
+            <div class="controls">
+                <input type="text" name="city" id="comp_reg-city">
+            </div>
+        </div>
+
+              <div class="control-group">
+            <label class="control-label" for="comp_reg-tournament">Турнир:</label>
+
+            <div class="controls">
+                <select name="tournament" id="omp_reg-tournament">
+                    {% for tournament in active_tournaments %}
+                      <option value={{ tournament.tournament_title }}>
+                        {{ tournament.tournament_title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+</fieldset>
+      <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
+                    </div>
+
+		</form>
+
+{% endblock %}

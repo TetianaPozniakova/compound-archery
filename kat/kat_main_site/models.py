@@ -58,11 +58,11 @@ class Video(models.Model):
 
 
 class Participant(models.Model):
-    first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=50)
     middle_name = models.CharField(max_length=50)
     sex = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')))
-    birth_date = models.DateTimeField('birth date')
+    birth_date = models.DateField('birth date')
 
     def __unicode__(self):
         return "%s %s %s" % (self.last_name, self.first_name, self.middle_name)
@@ -80,6 +80,7 @@ class CompetitionRegistration(models.Model):
 
 class Tournament(models.Model):
     tournament_title = models.CharField(max_length=150)
+    participants_list = models.ManyToManyField(Participant)
 
     def __unicode__(self):
         return self.tournament_title

@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     (r'^literature/', TemplateView.as_view(template_name="sport/kat_literature_page.html")),
     (r'^faq/', TemplateView.as_view(template_name="sport/kat_faq_page.html")),
 
+    (r'^tournament-registration/',
+     TemplateView.as_view(template_name="competitions/kat_competitionregistration_page.html")),
     (r'^ranking/', TemplateView.as_view(template_name="competitions/kat_rating_page.html")),
     (r'^results/', TemplateView.as_view(template_name="competitions/kat_results_page.html")),
     (r'^records/', TemplateView.as_view(template_name="competitions/kat_records_page.html")),
