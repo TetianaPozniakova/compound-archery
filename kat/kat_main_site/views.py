@@ -2,6 +2,7 @@
 from django.shortcuts import render_to_response, get_object_or_404, render, redirect
 from django.template import RequestContext
 from django.views.generic import TemplateView, ListView, DateDetailView
+from models import Participant, CompetitionRegistration, Tournament
 from models import Article, CalendarEvent, Video
 from kat_news.models import News
 from datetime import date, datetime, timedelta
@@ -69,3 +70,32 @@ def month(request, year, month, change=None):
 def video_list(request):
     latest_video = Video.objects.all().order_by('-date')
     return render(request, "gallery/video_gallery.html", {"latest_video": latest_video})
+
+
+def open_tournament_registration(request):
+    active_tournaments = Tournament.objects.filter(future_tournament=True)
+    return render(request, "competitions/kat_competitionregistration_page.html",
+                  {"active_tournaments": active_tournaments})
+
+
+def tournament_registration(request):
+    last_name = request.POST["last_name"]
+    first_name = request.POST["first_name"]
+    middle_name = request.POST["middle_name"]
+
+    # try:
+    #     participant = Participant.objects.get(last_name__iexact=last_name, first_name__iexact=first_name,
+    #                                           middle_name__iexact=middle_name)
+    # except Participant.DoesNotExist:
+    sex = request.POST["sex"]
+    birth_date = request.POST["birth_date"]
+    participant = Participant(last_name=last_name, first_name=first_name, middle_name=middle_name,
+                              sex=sex, birth_date=birth_date)
+    participant.save()
+    club = request.POST["club"]
+    city = request.POST["city"]
+    tournament = Participant.objects.get(tournament_title__iexact=request.POST["tournament"])
+    new_tournament_registration = CompetitionRegistration(participant=participant, participant_club=club,
+                                                          participant_location=city, tournament=tournament)
+    new_tournament_registration.save()
+    return render_to_response("kat_main_page.html", RequestContext(request))

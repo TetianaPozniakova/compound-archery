@@ -103,3 +103,52 @@ ul.noindent {
   display: inline-block;
   float: none;
 }
+
+#error-page {
+  display: block;
+  width: 100%;
+  padding: 150px 0;
+  line-height: 1.6em;
+  text-align: center;
+}
+
+#error-page hgroup {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#error-page hgroup h1,
+#error-page hgroup h2 {
+  margin: 0 0 0 40px;
+  padding: 0;
+  float: left;
+  text-transform: uppercase;
+}
+#error-page hgroup h1 {
+  margin-top: -90px;
+  font-size: 200px;
+}
+#error-page hgroup h2 {
+  font-size: 60px;
+}
+
+#error-page hgroup h2 span {
+  display: block;
+  font-size: 30px;
+}
+
+#error-page p {
+  margin: 25px 0 0 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+#error-page p:first-child {
+  margin-top: 0;
+}
+
+.clear {
+    clear:both;
+}

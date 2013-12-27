@@ -1,55 +1,22 @@
+{% extends "kat_base.html" %}
+
 {% load i18n %}
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% block title %}404 Page Not Found{% endblock %}
+{% block global_content %}
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+{#  <div class="wrapper row2">#}
+{#    <div id="container" class="clear">#}
+      <section id="error-page">
+        <hgroup>
+          <h1>404</h1>
+          <h2>{% trans "Error !" %} <span>{% trans "Page Not Found." %}</span></h2>
+        </hgroup>
+        </br>
+        <p>{% trans "For Some Reason The Page You Requested Could Not Be Found On Our Server" %} </p>
+        <p><a href="/">{% trans "Go Home" %}</a></p>
+      </section>
+{#    </div>#}
+{#  </div>#}
 
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title>404 Page not found</title>
-  <link href="{{ STATIC_URL }}forum/css/error.css" media="screen" rel="stylesheet" type="text/css" />	
-</head>
-
-<body>
-	
-
-
-	<div id="h_align">
-
-		<div id="content">
-			<table class="p404" cellspacing="0" cellpadding="0">
-			<tr>
-				<td colspan="3">&nbsp;</td>
-			</tr>
-			<tr>
-				<td colspan="3"><img style="margin: 0px 0px 0px 15px;" src="{{ STATIC_URL }}forum/img/logo.png" /></td>
-			</tr>
-			<tr>
-
-				<td width="50"></td>
-				<td><h1>{% trans "Error 404" %}</h1></td>
-				<td width="50"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><h3>{% trans "Page not found." %}</h3></td>
-				<td></td>
-
-			</tr>
-			<tr>
-				<td></td>
-				<td><p>{% trans "The requested URL was not found on this server." %}</p>
-			</td>
-				<td></td>
-			</tr>
-
-			<tr>
-				<td colspan="3">&nbsp;</td>
-			</tr>
-			</table>	
-		</div>
-	</div>
-
-</body>
-</html>
+{% endblock %}

@@ -212,7 +212,10 @@ ENABLE_NEWS_ARCHIVE_INDEX = getattr(settings, 'ENABLE_NEWS_ARCHIVE_INDEX', True)
 ENABLE_NEWS_DATE_ARCHIVE = getattr(settings, 'ENABLE_NEWS_DATE_ARCHIVE', True)
 
 # Picasagallery settings
-PICASAGALLERY_USER = 'nightbat@gothic.com.ua'
+PICASAGALLERY_USER = 'compound.archeryua@gmail.com'
+PICASAGALLERY_PHOTO_THUMBSIZE = '210'
+PICASAGALLERY_PHOTO_IMGMAXSIZE = '1024'
+PICASAGALLERY_ALBUM_THUMBSIZE = '210c'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

@@ -61,7 +61,7 @@ class Participant(models.Model):
     last_name = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
     middle_name = models.CharField(max_length=50)
-    sex = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')))
+    sex = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')), blank=True, null=True)
     birth_date = models.DateField('birth date')
 
     def __unicode__(self):
@@ -80,7 +80,8 @@ class CompetitionRegistration(models.Model):
 
 class Tournament(models.Model):
     tournament_title = models.CharField(max_length=150)
-    participants_list = models.ManyToManyField(Participant)
+    participants_list = models.ManyToManyField(Participant, blank=True, null=True)
+    future_tournament = models.BooleanField(default=True)
 
     def __unicode__(self):
         return self.tournament_title
