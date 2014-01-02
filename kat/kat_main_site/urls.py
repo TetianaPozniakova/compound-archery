@@ -11,7 +11,6 @@ urlpatterns = patterns('',
     # Static pages
     (r'^contacts/', TemplateView.as_view(template_name="kat_contacts_page.html")),
 
-    (r'^disciplines/', TemplateView.as_view(template_name="404.html")),
     (r'^history/', TemplateView.as_view(template_name="sport/kat_history_page.html")),
     (r'^development/', TemplateView.as_view(template_name="404.html")),
     (r'^rules/', TemplateView.as_view(template_name="sport/kat_rules_page.html")),

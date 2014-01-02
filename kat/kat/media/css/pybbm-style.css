@@ -1,0 +1,297 @@
+.forum_container{
+  /*margin-bottom: 20px;*/
+  /*background: #fffce8;*/
+}
+
+.category h1{
+  font-size: 1.2em;
+  font-weight: 400;
+  border-radius: 5px;
+}
+
+.category h3{
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+th.forum-topic-count,
+th.forum-post-count,
+th.topic-post-count,
+th.topic-view-count {
+  text-align: center
+}
+
+td.topic-name {
+  line-height: 16px
+}
+
+.topic-name-header {
+    display: inline-block;
+    line-height: 22px;
+    margin: 0 4px 3px 0;
+}
+
+td.forum-topic-count,
+td.forum-post-count,
+td.topic-post-count,
+td.topic-view-count {
+    font-size: .8em;
+    text-align: center;
+    width: 10%;
+}
+
+td.forum-topic-count,
+td.forum-post-count,
+td.forum-last-post,
+td.topic-post-count,
+td.topic-view-count,
+td.topic-last-post { vertical-align: middle }
+
+td.forum-last-post,
+td.topic-last-post {
+    font-size: .8em;
+    width: 25%;
+}
+.forum h1 {
+    font-size: 1.3em;
+    font-weight: 400;
+    border-radius: 5px;
+}
+
+.forum-description { font-size: .8em }
+.forum-unread a,
+.topic-unread a { font-weight: bold }
+.post-info {
+    font-size: .8em;
+    width: 150px;
+}
+
+.post-extra-info { font-size: .8em }
+.post-signature {
+    font-size: .8em;
+    border-top: 1px dashed;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.post-date { font-size: .8em }
+
+.post-content { max-width: 1033px }
+.post-control a {
+    border-radius: 3px;
+    padding: 5px 20px;
+    opacity: .7;
+}
+
+.controls.btn-group { margin-bottom: 20px }
+.block {
+  border: 1px solid;
+  border-radius: 4px;
+  margin: 0 0 20px 0;
+  padding: 10px;
+}
+
+.block .header {
+    font-weight: bold;
+    border-radius: 4px 4px 0 0;
+    line-height: 1.5em;
+    margin: -10px -10px 10px;
+    padding: 10px;
+}
+
+.block .info {
+    border-radius: 0 0 4px 4px;
+    margin: 20px -10px -10px -10px;
+    padding: 10px;
+}
+
+.pagination { text-align: center }
+.inline-pagination {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.footer {
+    padding: 30px 10px;
+    margin: 0 0 30px 0;
+}
+
+label.checkbox ul,
+label.radio ul { list-style: none }
+.poll-answer-form .control-group {
+    display: inline-block;
+    width: 400px;
+}
+
+.topic-list,
+.category-table {
+    border: 1px solid #dddddd;
+    border-collapse: separate;
+    *border-collapse: collapse;
+    border-left: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.topic-list th,
+.category-table th,
+.topic-list td,
+.category-table td { border-left: 1px solid #dddddd }
+.topic-list caption+thead tr:first-child th,
+.category-table caption+thead tr:first-child th,
+.topic-list caption+tbody tr:first-child th,
+.category-table caption+tbody tr:first-child th,
+.topic-list caption+tbody tr:first-child td,
+.category-table caption+tbody tr:first-child td,
+.topic-list colgroup+thead tr:first-child th,
+.category-table colgroup+thead tr:first-child th,
+.topic-list colgroup+tbody tr:first-child th,
+.category-table colgroup+tbody tr:first-child th,
+.topic-list colgroup+tbody tr:first-child td,
+.category-table colgroup+tbody tr:first-child td,
+.topic-list thead:first-child tr:first-child th,
+.category-table thead:first-child tr:first-child th,
+.topic-list tbody:first-child tr:first-child th,
+.category-table tbody:first-child tr:first-child th,
+.topic-list tbody:first-child tr:first-child td,
+.category-table tbody:first-child tr:first-child td { border-top: 0 }
+.topic-list thead:first-child tr:first-child>th:first-child,
+.category-table thead:first-child tr:first-child>th:first-child,
+.topic-list tbody:first-child tr:first-child>td:first-child,
+.category-table tbody:first-child tr:first-child>td:first-child {
+    -webkit-border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    border-top-left-radius: 4px;
+}
+
+.topic-list thead:first-child tr:first-child>th:last-child,
+.category-table thead:first-child tr:first-child>th:last-child,
+.topic-list tbody:first-child tr:first-child>td:last-child,
+.category-table tbody:first-child tr:first-child>td:last-child {
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-right-radius: 4px;
+}
+.topic-list thead:last-child tr:last-child>th:first-child,
+.category-table thead:last-child tr:last-child>th:first-child,
+.topic-list tbody:last-child tr:last-child>td:first-child,
+.category-table tbody:last-child tr:last-child>td:first-child,
+.topic-list tfoot:last-child tr:last-child>td:first-child,
+.category-table tfoot:last-child tr:last-child>td:first-child {
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.topic-list thead:last-child tr:last-child>th:last-child,
+.category-table thead:last-child tr:last-child>th:last-child,
+.topic-list tbody:last-child tr:last-child>td:last-child,
+.category-table tbody:last-child tr:last-child>td:last-child,
+.topic-list tfoot:last-child tr:last-child>td:last-child,
+.category-table tfoot:last-child tr:last-child>td:last-child {
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.topic-list tfoot+tbody:last-child tr:last-child td:first-child,
+.category-table tfoot+tbody:last-child tr:last-child td:first-child {
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    border-bottom-left-radius: 0;
+}
+
+.topic-list tfoot+tbody:last-child tr:last-child td:last-child,
+.category-table tfoot+tbody:last-child tr:last-child td:last-child {
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    border-bottom-right-radius: 0;
+}
+
+.topic-list caption+thead tr:first-child th:first-child,
+.category-table caption+thead tr:first-child th:first-child,
+.topic-list caption+tbody tr:first-child td:first-child,
+.category-table caption+tbody tr:first-child td:first-child,
+.topic-list colgroup+thead tr:first-child th:first-child,
+.category-table colgroup+thead tr:first-child th:first-child,
+.topic-list colgroup+tbody tr:first-child td:first-child,
+.category-table colgroup+tbody tr:first-child td:first-child {
+    -webkit-border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    border-top-left-radius: 4px;
+}
+
+.topic-list caption+thead tr:first-child th:last-child,
+.category-table caption+thead tr:first-child th:last-child,
+.topic-list caption+tbody tr:first-child td:last-child,
+.category-table caption+tbody tr:first-child td:last-child,
+.topic-list colgroup+thead tr:first-child th:last-child,
+.category-table colgroup+thead tr:first-child th:last-child,
+.topic-list colgroup+tbody tr:first-child td:last-child,
+.category-table colgroup+tbody tr:first-child td:last-child {
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-right-radius: 4px;
+}
+
+.topic-list tbody>tr:nth-child(odd)>td,
+.category-table tbody>tr:nth-child(odd)>td,
+.topic-list tbody>tr:nth-child(odd)>th,
+.category-table tbody>tr:nth-child(odd)>th { background-color: #f9f9f9 }
+.topic-meta { font-size: .8em }
+.code pre {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+blockquote {
+    background: #f5f2d0;
+    border-left: 3px solid #dbd8ba;
+}
+
+.category h1 { color: #08c }
+.forum h1 { color: #08c }
+.forum-description { color: #777 }
+.head-row { color: #777 }
+.odd { background: #fafafa }
+.forum-unread a,
+.topic-unread a { font-weight: bold }
+.state-indicator,
+.state-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    margin: 5px 5px 0 0;
+    background-color: #999999;
+    float: left;
+}
+
+.forum-unread .state-indicator,
+.topic-unread .state-indicator { background-color: #0077bb }
+.post-info { background: #fdfdfd }
+.post-extra-info { color: #999 }
+.post-signature {
+    color: #bbb;
+    border-top: 1px dashed #ddd;
+}
+
+.post-form input[type="text"],
+.post-form input[type="password"],
+.post-form textarea { width: 100% }
+.post thead { background: #f5f5f5 }
+.post tfoot { background: #fcfcfc }
+.post-author { font-weight: bold }
+.post-info { color: #999999 }
+.post-date { color: #999 }
+.post-control a:hover { background: #eaeaea }
+.block { border-color: #ddd }
+.block .header { background: #f5f5f5 }
+.block .header a:visited { color: #70a0ba }
+.block .info {
+    color: #999;
+    background: #f5f5f5;
+}
+.comment { border: 1px solid #d4d4d4 }

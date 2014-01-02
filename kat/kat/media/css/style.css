@@ -157,3 +157,24 @@ ul.noindent {
   text-align: center;
   font-family:"";
 }
+
+.note {
+  text-align: center;
+  font-family:"";
+  color: grey;
+}
+
+.term {
+  text-decoration:underline;
+  clear:both;
+}
+
+#faq-body img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-author {
+  text-align: right;
+}

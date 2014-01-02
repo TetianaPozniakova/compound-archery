@@ -13,31 +13,32 @@
 
 {% block global_content %}
 
-  <h3>Список зарегистрированных участников</h3><hr>
+  <div id="welcome"><h3>Список зарегистрированных участников</h3><hr></div>
 
-            <div class="control-group">
-            <label class="control-label" for="reg-tournament">Выберите Турнир:</label>
-            <div class="controls">
-                <select name="tournament" id="reg-tournament">
-                    <option value="none-selected"></option>
-                    {% for tournament in active_tournaments %}
-                      <option value="{{ tournament.tournament_title }}">
-                        {{ tournament.tournament_title }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-          </div>
+  <div class="control-group">
+    <label class="control-label" for="reg-tournament">Выберите Турнир:</label>
+    <div class="controls">
+        <select name="tournament" id="reg-tournament">
+            <option value="none-selected">-----</option>
+            {% for tournament in active_tournaments %}
+              <option value="{{ tournament.tournament_title }}">
+                {{ tournament.tournament_title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+  </div>
+
+  <br>
 
   <div id="participants-lists">
-      {% for tournament in active_tournaments %}
-        <div id="{{ tournament.tournament_title }}" class="lists" style="display: none;">
-          {{ tournament.tournament_title }}
-          {% for participant in tournament.participants_list.all %}
-        <li>{{ participant.last_name }} {{ participant.first_name }} {{ participant.middle_name }} </li>
-              {% endfor %}
-
-        </div>
-      {% endfor %}
+    {% for tournament in active_tournaments %}
+      <div id="{{ tournament.tournament_title }}" class="lists" style="display: none;">
+        <h4>{{ tournament.tournament_title }}:</h4>
+        {% for participant in tournament.participants_list.all %}
+      <li>{{ participant.last_name }} {{ participant.first_name }} {{ participant.middle_name }} </li>
+            {% endfor %}
+      </div>
+    {% endfor %}
   </div>
 
 {% endblock %}
