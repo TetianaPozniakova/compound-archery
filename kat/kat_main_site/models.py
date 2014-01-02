@@ -1,7 +1,10 @@
+ # -*- coding: utf-8 -*-
+
 from django.db import models
 from datetime import datetime
 from django.core.urlresolvers import reverse
 from django.core.validators import MaxLengthValidator
+from django.forms import ModelForm
 
 try:
     from tinymce.models import HTMLField
@@ -58,11 +61,11 @@ class Video(models.Model):
 
 
 class Participant(models.Model):
-    last_name = models.CharField(max_length=50)
-    first_name = models.CharField(max_length=50)
-    middle_name = models.CharField(max_length=50)
-    sex = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')), blank=True, null=True)
-    birth_date = models.DateField('birth date')
+    last_name = models.CharField(max_length=50, verbose_name="Фамилия")
+    first_name = models.CharField(max_length=50, verbose_name="Имя")
+    middle_name = models.CharField(max_length=50, verbose_name="Отчество")
+    sex = models.CharField(max_length=1, choices=(('M', 'Мужской'), ('F', 'Женский')), verbose_name="Пол")
+    birth_date = models.DateField(verbose_name="Дата рождения")
 
     def __unicode__(self):
         return "%s %s %s" % (self.last_name, self.first_name, self.middle_name)
@@ -70,8 +73,8 @@ class Participant(models.Model):
 
 class CompetitionRegistration(models.Model):
     participant = models.ForeignKey('Participant')
-    participant_club = models.CharField(max_length=50)
-    participant_location = models.CharField(max_length=50)
+    participant_club = models.CharField(max_length=50, verbose_name="Спортивное общество")
+    participant_location = models.CharField(max_length=50, verbose_name="Место проживания")
     tournament = models.ForeignKey('Tournament')
 
     def __unicode__(self):
@@ -85,3 +88,14 @@ class Tournament(models.Model):
 
     def __unicode__(self):
         return self.tournament_title
+
+
+class ParticipantForm(ModelForm):
+    class Meta:
+        model = Participant
+
+
+class CompetitionRegistrationForm(ModelForm):
+    class Meta:
+        model = CompetitionRegistration
+        fields = ['participant_club', 'participant_location']

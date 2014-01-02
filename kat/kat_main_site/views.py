@@ -1,8 +1,9 @@
 # Create your views here.
 from django.shortcuts import render_to_response, get_object_or_404, render, redirect
+from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.views.generic import TemplateView, ListView, DateDetailView
-from models import Participant, CompetitionRegistration, Tournament
+from models import Participant, CompetitionRegistration, Tournament, ParticipantForm, CompetitionRegistrationForm
 from models import Article, CalendarEvent, Video
 from kat_news.models import News
 from datetime import date, datetime, timedelta
@@ -72,30 +73,59 @@ def video_list(request):
     return render(request, "gallery/video_gallery.html", {"latest_video": latest_video})
 
 
-def open_tournament_registration(request):
+def participants_lists(request):
     active_tournaments = Tournament.objects.filter(future_tournament=True)
-    return render(request, "competitions/kat_competitionregistration_page.html",
+    return render(request, "competitions/kat_registered_participant_page.html",
                   {"active_tournaments": active_tournaments})
 
 
 def tournament_registration(request):
-    last_name = request.POST["last_name"]
-    first_name = request.POST["first_name"]
-    middle_name = request.POST["middle_name"]
+    if request.method == 'POST':  # If the form has been submitted...
+        pform = ParticipantForm(request.POST)  # A form bound to the POST data
+        rform = CompetitionRegistrationForm(request.POST)
+        print request.POST["tournament"]
+        tournament = Tournament.objects.get(tournament_title__iexact=request.POST["tournament"])
+        print pform.is_valid()
+        print rform.is_valid()
+        if pform.is_valid() and rform.is_valid():  # All validation rules pass
+            last_name = request.POST["last_name"]
+            first_name = request.POST["first_name"]
+            middle_name = request.POST["middle_name"]
+            try:
+                participant = Participant.objects.get(last_name__iexact=last_name, first_name__iexact=first_name,
+                                                      middle_name__iexact=middle_name)
+            except Participant.DoesNotExist:
+                participant = pform.save()
+            new_tournament_registration = rform.save(commit=False)
+            new_tournament_registration.participant = participant
+            new_tournament_registration.tournament = tournament
+            new_tournament_registration.save()
+            return HttpResponseRedirect('/thanks/')  # Redirect after POST
+    else:
+        pform = ParticipantForm()
+        rform = CompetitionRegistrationForm()
+    active_tournaments = Tournament.objects.filter(future_tournament=True)
+    return render(request, "competitions/kat_competitionregistration_page.html",
+                  {"pform": pform, "rform": rform, "active_tournaments": active_tournaments})
 
-    # try:
-    #     participant = Participant.objects.get(last_name__iexact=last_name, first_name__iexact=first_name,
-    #                                           middle_name__iexact=middle_name)
-    # except Participant.DoesNotExist:
-    sex = request.POST["sex"]
-    birth_date = request.POST["birth_date"]
-    participant = Participant(last_name=last_name, first_name=first_name, middle_name=middle_name,
-                              sex=sex, birth_date=birth_date)
-    participant.save()
-    club = request.POST["club"]
-    city = request.POST["city"]
-    tournament = Participant.objects.get(tournament_title__iexact=request.POST["tournament"])
-    new_tournament_registration = CompetitionRegistration(participant=participant, participant_club=club,
-                                                          participant_location=city, tournament=tournament)
-    new_tournament_registration.save()
-    return render_to_response("kat_main_page.html", RequestContext(request))
+# def tournament_registration(request):
+#     last_name = request.POST["last_name"]
+#     first_name = request.POST["first_name"]
+#     middle_name = request.POST["middle_name"]
+#
+#     # try:
+#     #     participant = Participant.objects.get(last_name__iexact=last_name, first_name__iexact=first_name,
+#     #                                           middle_name__iexact=middle_name)
+#     # except Participant.DoesNotExist:
+#     sex = request.POST["sex"]
+#     birth_date = request.POST["birth_date"]
+#     participant = Participant(last_name=last_name, first_name=first_name, middle_name=middle_name,
+#                               sex=sex, birth_date=birth_date)
+#     participant.save()
+#     club = request.POST["club"]
+#     city = request.POST["city"]
+#     tournament = Tournament.objects.get(tournament_title__iexact=request.POST["tournament"])
+#     new_tournament_registration = CompetitionRegistration(participant=participant, participant_club=club,
+#                                                           participant_location=city, tournament=tournament)
+#     new_tournament_registration.save()
+#     return render_to_response("kat_main_page.html", RequestContext(request))

@@ -25,12 +25,13 @@ class ParticipantAdmin(admin.ModelAdmin):
 
 
 class CompetitionRegistrationAdmin(admin.ModelAdmin):
-    list_display = ["tournament", "participant", "participant_club"]
+    list_display = ["tournament", "participant", "participant_club", "participant_location"]
     list_filter = ["tournament"]
 
 
 class TournamentAdmin(admin.ModelAdmin):
     list_display = ["tournament_title"]
+    filter_horizontal = ('participants_list',)
 
 
 admin.site.register(Article, ArticleAdmin)

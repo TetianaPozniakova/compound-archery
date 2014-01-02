@@ -1,89 +1,50 @@
 {% extends "kat_base.html" %}
 
 {% load i18n %}
+{% load bootstrap_tags %}
 
 {% block title %}Регистрация на Соревнования{% endblock %}
+{% block head %}
+      <script src="/media/js/jquery-ui.js"></script>
+      <script src="/media/js/competition_registration.js"></script>
+      <link href="/media/css/jquery-ui.css" rel="stylesheet"/>
+{% endblock %}
+
 {% block global_content %}
 
 <h3>Регистрация на Соревнования</h3><hr>
-    <form id="competition_register_form" method="post" action="{% url "tournament_registration" %}" autocapitalize="off" class="form-horizontal">
 
-		{% csrf_token %}
-<fieldset>
-        <div class="control-group">
-            <label class="control-label" for="comp_reg-last_name">Фамилия:</label>
-
-            <div class="controls">
-                <input type="text" name="last_name" id="comp_reg-last_name">
+  {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-error">
+                <strong>{{ error|escape }}</strong>
             </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-error">
+            <strong>{{ error|escape }}</strong>
         </div>
+    {% endfor %}
+{% endif %}
+
+    <form id="competition_register_form" method="post" action="{% url "tournament_registration" %}" autocapitalize="off" class="form-horizontal">
+		{% csrf_token %}
+      {{ pform|as_bootstrap }}
+      {{ rform|as_bootstrap }}
 
           <div class="control-group">
-            <label class="control-label" for="comp_reg-first_name">Имя:</label>
-
+            <label class="control-label" for="comp_reg-tournament">Турнир</label>
             <div class="controls">
-                <input type="text" name="first_name" id="comp_reg-first_name">
-            </div>
-        </div>
-
-            <div class="control-group">
-            <label class="control-label" for="comp_reg-middle_name">Отчество:</label>
-
-            <div class="controls">
-                <input type="text" name="middle_name" id="comp_reg-middle_name">
-            </div>
-        </div>
-
-              <div class="control-group">
-            <label class="control-label" for="comp_reg-sex">Пол:</label>
-
-            <div class="controls">
-              <label class="radio">
-              <input type="radio" name="sex" id="comp_reg-sex" value="M">Мужской
-                                     </label>
-              <label class="radio">
-              <input type="radio" name="sex" id="comp_reg-sex" value="F">Женский
-                                                        </label>
-            </div>
-        </div>
-
-              <div class="control-group">
-            <label class="control-label" for="comp_reg-birth_date">Дата Рождения:</label>
-
-            <div class="controls">
-                <input type="date" name="birth_date" id="comp_reg-birth_date">
-            </div>
-        </div>
-
-              <div class="control-group">
-            <label class="control-label" for="comp_reg-club">Спортивное общество:</label>
-
-            <div class="controls">
-                <input type="text" name="club" id="comp_reg-club">
-            </div>
-        </div>
-
-              <div class="control-group">
-            <label class="control-label" for="comp_reg-city">Город:</label>
-
-            <div class="controls">
-                <input type="text" name="city" id="comp_reg-city">
-            </div>
-        </div>
-
-              <div class="control-group">
-            <label class="control-label" for="comp_reg-tournament">Турнир:</label>
-
-            <div class="controls">
-                <select name="tournament" id="omp_reg-tournament">
+                <select name="tournament" id="comp_reg-tournament">
                     {% for tournament in active_tournaments %}
-                      <option value={{ tournament.tournament_title }}>
+                      <option value="{{ tournament.tournament_title }}">
                         {{ tournament.tournament_title }}</option>
                     {% endfor %}
                 </select>
             </div>
-        </div>
-</fieldset>
+          </div>
       <div class="form-actions">
                         <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
                     </div>

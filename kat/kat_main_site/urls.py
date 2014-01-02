@@ -1,7 +1,7 @@
 __author__ = 'noctule'
 from django.conf.urls import patterns, url, include
 from django.views.generic import TemplateView, ListView, DateDetailView
-from views import main_page, ArticleDetailedView, month, tournament_registration, open_tournament_registration
+from views import main_page, ArticleDetailedView, month, tournament_registration, participants_lists
 from models import Article
 
 urlpatterns = patterns('',
@@ -17,9 +17,9 @@ urlpatterns = patterns('',
     (r'^rules/', TemplateView.as_view(template_name="sport/kat_rules_page.html")),
     (r'^literature/', TemplateView.as_view(template_name="sport/kat_literature_page.html")),
     (r'^faq/', TemplateView.as_view(template_name="sport/kat_faq_page.html")),
-    (r'^tournament-registration/', open_tournament_registration),
-    url(r'^tournament-registration/registration/', tournament_registration,
+    url(r'^tournament-registration/', tournament_registration,
         name="tournament_registration"),
+    (r'^participants-lists/', participants_lists),
     (r'^ranking/', TemplateView.as_view(template_name="competitions/kat_rating_page.html")),
     (r'^results/', TemplateView.as_view(template_name="competitions/kat_results_page.html")),
     (r'^records/', TemplateView.as_view(template_name="competitions/kat_records_page.html")),

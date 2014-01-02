@@ -4,3 +4,4 @@ from captcha.fields import CaptchaField
 
 class SignupFormWithCaptcha(SignupForm):
     captcha = CaptchaField()
+

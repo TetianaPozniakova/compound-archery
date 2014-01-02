@@ -1,0 +1,43 @@
+{% extends "kat_base.html" %}
+
+{% load i18n %}
+{% load bootstrap_tags %}
+
+{% block title %}Список зарегистрированных участников{% endblock %}
+{% block head %}
+      <script src="/media/js/jquery-ui.js"></script>
+      <script src="/media/js/competition_registration.js"></script>
+      <link href="/media/css/jquery-ui.css" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block global_content %}
+
+  <h3>Список зарегистрированных участников</h3><hr>
+
+            <div class="control-group">
+            <label class="control-label" for="reg-tournament">Выберите Турнир:</label>
+            <div class="controls">
+                <select name="tournament" id="reg-tournament">
+                    <option value="none-selected"></option>
+                    {% for tournament in active_tournaments %}
+                      <option value="{{ tournament.tournament_title }}">
+                        {{ tournament.tournament_title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+          </div>
+
+  <div id="participants-lists">
+      {% for tournament in active_tournaments %}
+        <div id="{{ tournament.tournament_title }}" class="lists" style="display: none;">
+          {{ tournament.tournament_title }}
+          {% for participant in tournament.participants_list.all %}
+        <li>{{ participant.last_name }} {{ participant.first_name }} {{ participant.middle_name }} </li>
+              {% endfor %}
+
+        </div>
+      {% endfor %}
+  </div>
+
+{% endblock %}
