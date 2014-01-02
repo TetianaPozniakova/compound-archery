@@ -83,10 +83,7 @@ def tournament_registration(request):
     if request.method == 'POST':  # If the form has been submitted...
         pform = ParticipantForm(request.POST)  # A form bound to the POST data
         rform = CompetitionRegistrationForm(request.POST)
-        print request.POST["tournament"]
         tournament = Tournament.objects.get(tournament_title__iexact=request.POST["tournament"])
-        print pform.is_valid()
-        print rform.is_valid()
         if pform.is_valid() and rform.is_valid():  # All validation rules pass
             last_name = request.POST["last_name"]
             first_name = request.POST["first_name"]
@@ -100,7 +97,8 @@ def tournament_registration(request):
             new_tournament_registration.participant = participant
             new_tournament_registration.tournament = tournament
             new_tournament_registration.save()
-            return HttpResponseRedirect('/thanks/')  # Redirect after POST
+            tournament.participants_list.add(participant)
+            return HttpResponseRedirect('/participants-lists/')  # Redirect after POST
     else:
         pform = ParticipantForm()
         rform = CompetitionRegistrationForm()

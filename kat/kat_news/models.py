@@ -37,7 +37,7 @@ class News(models.Model):
     date = models.DateTimeField(verbose_name=u'Дата', default=datetime.datetime.now)
 
     short = HTMLField(validators=[MaxLengthValidator(1400)], verbose_name=u'Кратное описание', default='', blank=True)
-    text = HTMLField(validators=[MaxLengthValidator(14000)], verbose_name=u'Полный текст', default='', blank=True)
+    text = HTMLField(validators=[MaxLengthValidator(50000)], verbose_name=u'Полный текст', default='', blank=True)
 
     show = models.BooleanField(verbose_name=u'Опубликовано', default=True)
 
