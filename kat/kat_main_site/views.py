@@ -12,8 +12,6 @@ import time
 
 
 def main_page(request):
-    if News.objects.all().count():
-        return redirect("/news/")
     return render_to_response('kat_main_page.html', RequestContext(request))
 
 
