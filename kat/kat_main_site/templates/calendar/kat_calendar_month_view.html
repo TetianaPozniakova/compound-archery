@@ -1,4 +1,5 @@
 {% extends "kat_base.html" %}
+{% block title %}Календарь соревнований{% endblock %}
 
 {% block head %}
   <link href="/media/css/calendar.css" rel="stylesheet" type="text/css">
@@ -6,8 +7,8 @@
 
 {% block global_content %}
 
-{#<a href= "{% url "month" year month "prev" %}">&lt;&lt; Prev</a>#}
-{#<a href= "{% url "month" year month "next" %}">Next &gt;&gt;</a>#}
+<a href= "{% url "month" year month "prev" %}">&lt;&lt; Prev</a>
+<a href= "{% url "month" year month "next" %}">Next &gt;&gt;</a>
 
 <h4>{{ mname }} {{ year }}</h4>
 
@@ -15,13 +16,13 @@
     <table>
 
     <tr>
-        <td class="empty">Mon</td>
-        <td class="empty">Tue</td>
-        <td class="empty">Wed</td>
-        <td class="empty">Thu</td>
-        <td class="empty">Fri</td>
-        <td class="empty">Sat</td>
-        <td class="empty">Sun</td>
+        <td class="cal-day">Mon</td>
+        <td class="cal-day">Tue</td>
+        <td class="cal-day">Wed</td>
+        <td class="cal-day">Thu</td>
+        <td class="cal-day">Fri</td>
+        <td class="cal-day">Sat</td>
+        <td class="cal-day">Sun</td>
     </tr>
 
     {% for week in month_days %}
@@ -33,9 +34,8 @@
             {% if day != 0 and not current %}"day"{% endif %}
             {% if day != 0 and current %}"current"{% endif %}
             {% if day != 0 %}
-{#                onClick="parent.location='{% url cal.views.day year month day %}'"#}
-{#                onMouseOver="this.bgColor='#eeeeee';"#}
-{#                onMouseOut="this.bgColor='white';"#}
+                onMouseOver="this.bgColor='#eeeeee';"
+                onMouseOut="this.bgColor='transparent';"
             {% endif %} >
 
             <!-- Day number and entry snippets -->

@@ -5,7 +5,6 @@ from django.template import RequestContext
 from django.views.generic import TemplateView, ListView, DateDetailView
 from models import Participant, CompetitionRegistration, Tournament, ParticipantForm, CompetitionRegistrationForm
 from models import Article, CalendarEvent, Video
-from kat_news.models import News
 from datetime import date, datetime, timedelta
 import calendar
 import time
@@ -35,10 +34,12 @@ def month(request, year, month, change=None):
     # apply next / previous change
     if change in ("next", "prev"):
         now, mdelta = date(year, month, 15), timedelta(days=31)
-        if change == "next":   mod = mdelta
-        elif change == "prev": mod = -mdelta
+        if change == "next":
+            mod = mdelta
+        elif change == "prev":
+            mod = -mdelta
 
-        year, month = (now+mod).timetuple()[:2]
+        year, month = (now + mod).timetuple()[:2]
 
     # init variables
     cal = calendar.Calendar()
@@ -63,7 +64,36 @@ def month(request, year, month, change=None):
             week += 1
 
     return render_to_response("calendar/kat_calendar_month_view.html", dict(year=year, month=month,
-                                                                            month_days=lst, mname=mnames[month-1]))
+                                                                            month_days=lst, mname=mnames[month - 1]))
+
+
+def main(request, year=None):
+    """Main listing, years and months; three years per page."""
+    # prev / next years
+    if year:
+        year = int(year)
+    else:
+        year = time.localtime()[0]
+
+    nowy, nowm = time.localtime()[:2]
+    lst = []
+
+    # create a list of months for each year, indicating ones that contain entries and current
+    for y in [year, year + 1, year + 2]:
+        mlst = []
+        for n, month in enumerate(mnames):
+            entry = current = False # are there entry(s) for this month; current month?
+            entries = CalendarEvent.objects.filter(event_start_date__year=y, event_start_date__month=n + 1)
+
+            if entries:
+                entry = True
+            if y == nowy and n + 1 == nowm:
+                current = True
+            mlst.append(dict(n=n + 1, name=month, entry=entry, current=current))
+        lst.append((y, mlst))
+
+    return render_to_response("calendar/kat_calendar_page.html", dict(years=lst, year=year),
+                              context_instance=RequestContext(request))
 
 
 def video_list(request):
@@ -104,24 +134,24 @@ def tournament_registration(request):
     return render(request, "competitions/kat_competitionregistration_page.html",
                   {"pform": pform, "rform": rform, "active_tournaments": active_tournaments})
 
-# def tournament_registration(request):
-#     last_name = request.POST["last_name"]
-#     first_name = request.POST["first_name"]
-#     middle_name = request.POST["middle_name"]
-#
-#     # try:
-#     #     participant = Participant.objects.get(last_name__iexact=last_name, first_name__iexact=first_name,
-#     #                                           middle_name__iexact=middle_name)
-#     # except Participant.DoesNotExist:
-#     sex = request.POST["sex"]
-#     birth_date = request.POST["birth_date"]
-#     participant = Participant(last_name=last_name, first_name=first_name, middle_name=middle_name,
-#                               sex=sex, birth_date=birth_date)
-#     participant.save()
-#     club = request.POST["club"]
-#     city = request.POST["city"]
-#     tournament = Tournament.objects.get(tournament_title__iexact=request.POST["tournament"])
-#     new_tournament_registration = CompetitionRegistration(participant=participant, participant_club=club,
-#                                                           participant_location=city, tournament=tournament)
-#     new_tournament_registration.save()
-#     return render_to_response("kat_main_page.html", RequestContext(request))
+    # def tournament_registration(request):
+    #     last_name = request.POST["last_name"]
+    #     first_name = request.POST["first_name"]
+    #     middle_name = request.POST["middle_name"]
+    #
+    #     # try:
+    #     #     participant = Participant.objects.get(last_name__iexact=last_name, first_name__iexact=first_name,
+    #     #                                           middle_name__iexact=middle_name)
+    #     # except Participant.DoesNotExist:
+    #     sex = request.POST["sex"]
+    #     birth_date = request.POST["birth_date"]
+    #     participant = Participant(last_name=last_name, first_name=first_name, middle_name=middle_name,
+    #                               sex=sex, birth_date=birth_date)
+    #     participant.save()
+    #     club = request.POST["club"]
+    #     city = request.POST["city"]
+    #     tournament = Tournament.objects.get(tournament_title__iexact=request.POST["tournament"])
+    #     new_tournament_registration = CompetitionRegistration(participant=participant, participant_club=club,
+    #                                                           participant_location=city, tournament=tournament)
+    #     new_tournament_registration.save()
+    #     return render_to_response("kat_main_page.html", RequestContext(request))
