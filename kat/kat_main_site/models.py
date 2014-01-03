@@ -1,4 +1,4 @@
- # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from django.db import models
 from datetime import datetime
@@ -36,15 +36,15 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('article-detail', kwargs={'year': self.article_publish_date.year,
-                 'month': int(self.article_publish_date.strftime('%m').lower()),
-                 'day': self.article_publish_date.day,
-                 'slug': self.article_slug})
+                                                 'month': int(self.article_publish_date.strftime('%m').lower()),
+                                                 'day': self.article_publish_date.day,
+                                                 'slug': self.article_slug})
 
 
 class CalendarEvent(models.Model):
     event_title = models.CharField(max_length=150)
-    event_start_date = models.DateTimeField(default=datetime.now)
-    event_end_date = models.DateTimeField(default=datetime.now)
+    event_start_date = models.DateField(default=datetime.now)
+    event_end_date = models.DateField(default=datetime.now)
     #TODO: add choice field to select type of the competition in order to color cells on the calendar
 
     def __unicode__(self):
@@ -78,7 +78,8 @@ class CompetitionRegistration(models.Model):
     tournament = models.ForeignKey('Tournament')
 
     def __unicode__(self):
-        return "%s %s (%s)" % (self.participant.last_name, self.participant.first_name, self.tournament.tournament_title)
+        return "%s %s (%s)" % (
+            self.participant.last_name, self.participant.first_name, self.tournament.tournament_title)
 
 
 class Tournament(models.Model):

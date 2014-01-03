@@ -8,6 +8,7 @@
 {% block global_content %}
 
 <a href= "{% url "month" year month "prev" %}">&lt;&lt; Prev</a>
+<a href= "{% url "main"%}">Calendar</a>
 <a href= "{% url "month" year month "next" %}">Next &gt;&gt;</a>
 
 <h4>{{ mname }} {{ year }}</h4>
