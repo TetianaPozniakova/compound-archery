@@ -5,11 +5,11 @@
           <h4><strong><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></strong></h4>
             {{ object.short|safe }} <small>[<a href="{{ object.get_absolute_url }}">читать полностью</a>]</small>
           <div>
-            <span class="badge news-date">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</span>
+            <span class="news-date">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</span>
             <div class="pull-right">
 			        {% if object.tags.all %}
 				          {% for tag in object.tags.all %}
-					          <a class="label news-tags" href="/news/tag/{{ tag.slug }}/">{{ tag.name }}</a>
+					          <a class="news-tags" href="/news/tag/{{ tag.slug }}/">{{ tag.name }}</a>
 				          {% endfor %}
         			{% endif %}
              </div>
