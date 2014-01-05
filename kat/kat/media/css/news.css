@@ -21,11 +21,13 @@
 
 .news-date {
 	width: 120px;
-	background: #200041;
+	background: #ffd64f;
 	text-align: center;
 	padding-right: 3px;
 	border-radius: 3px;
 	font-size: 10px;
+  	color: #222D33;
+
 }
 
 .news-short {
@@ -51,8 +53,7 @@
 }
 
 .news-tags {
-	margin-bottom: 10px;
-	text-align: right;
+	background: #4bb5e7;
 }
 
 .news-tags ul {
