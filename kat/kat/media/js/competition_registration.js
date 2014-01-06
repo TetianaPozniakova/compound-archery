@@ -9,7 +9,8 @@
 $(function() {
     $( "#id_birth_date" ).datepicker({
         changeMonth: true,
-        changeYear: true
+        changeYear: true,
+        yearRange: "1900:"
     });
 });
 
