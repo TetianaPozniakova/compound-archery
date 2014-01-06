@@ -10,9 +10,14 @@ $(function() {
     $( "#id_birth_date" ).datepicker({
         changeMonth: true,
         changeYear: true,
-        yearRange: "1900:"
+        yearRange: "1900:",
+        dateFormat: 'dd/mm/yy'
     });
 });
+
+$(function() {
+	    $('#id_birth_date').attr("placeholder", "dd/mm/yyyy").datepicker();
+	});
 
 $(function() {
 //    $('#participants-lists').hide(); //hide field on start
