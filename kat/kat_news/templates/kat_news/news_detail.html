@@ -5,7 +5,8 @@
 
 {% block global_content %}
     <div class="news-date">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</div>
-    <div class="news-text">{{ object.text|safe }}</div>
+  <h3 class="news-title">{{ object.title }}</h3>
+  <div class="news-text">{{ object.text|safe }}</div>
           <hr class="news-hr">
 
     <div class="news-list"><a href="{% url "news_archive_index" %}">Все новости</a></div>
