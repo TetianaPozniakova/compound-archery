@@ -91,74 +91,76 @@
     </div>
 
     <section class="container">
-    <div class="row-fluid">
-      <div class="span12">
-        {% block global_content %}{% endblock %}
+      <div class="row-fluid">
+        <div class="span12">
+          {% block global_content %}{% endblock %}
+        </div>
       </div>
-    </div>
-    <div class="clear"></div>
+      <div class="clear"></div>
     </section>
 
     <footer id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="span6 timelineWidget">
-            <h2>Latest Activities</h2>
-            <div class="divider"><span></span></div>
-            <div id="twitterFrame"> <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-timeline twitter-timeline-rendered" style="border: none; max-width: 100%; min-width: 180px;" title="Twitter Timeline" width="460" height="186"></iframe>
+      <div class="row-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="span6 timelineWidget">
+              <h2>Latest Activities</h2>
+              <div class="divider"><span></span></div>
+              <div id="twitterFrame">
 
+              </div>
+            </div>
+            <div class="span3 contactWidget">
+              <h2>Contact us</h2>
+              <div class="divider"><span></span></div>
+              <address>
+              <strong>Little NEKO</strong>
+              <p> <i class="icon-location"></i>&nbsp;77 Mass. Ave., E14/E15<br>
+                Cambridge, MA 02139-4307 USA </p>
+              <p> <i class="icon-phone"></i>&nbsp;615.987.1234 </p>
+              <p> <i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">little@little-neko.com</a> </p>
+              </address>
+            </div>
+            <div class="span3 socialWidget">
+              <h2>Follow us</h2>
+              <div class="divider"><span></span></div>
+              <a class="social-network">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span></a>
+              <a class="social-network">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span></a>
+              <a class="social-network">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                  </span></a>
+              <a class="social-network">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span></a>
+              <a class="social-network">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span></a>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed lectus in turpis consequat pharetra. Nulla velit purus, vestibulum sit amet ultrices eget, ultricies ut massa. Cras ac nulla at arcu vehicula hendrerit. </p>
             </div>
           </div>
-          <div class="span3 contactWidget">
-            <h2>Contact us</h2>
-            <div class="divider"><span></span></div>
-            <address>
-            <strong>Little NEKO</strong>
-            <p> <i class="icon-location"></i>&nbsp;77 Mass. Ave., E14/E15<br>
-              Cambridge, MA 02139-4307 USA </p>
-            <p> <i class="icon-phone"></i>&nbsp;615.987.1234 </p>
-            <p> <i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">little@little-neko.com</a> </p>
-            </address>
+          <div class="row credits">
+              <div class="col-md-12">
+                  <div class="row copyright">
+                      <div class="col-md-12">
+                          © 2013 3PS. All rights reserved. <a href="http://3ps.if.ua">3PS</a>
+                      </div>
+                  </div>
+              </div>
           </div>
-          <div class="span3 socialWidget">
-            <h2>Follow us</h2>
-            <div class="divider"><span></span></div>
-            <a class="social-network">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                </span></a>
-            <a class="social-network">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                </span></a>
-            <a class="social-network">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
-                </span></a>
-            <a class="social-network">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                </span></a>
-            <a class="social-network">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                </span></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed lectus in turpis consequat pharetra. Nulla velit purus, vestibulum sit amet ultrices eget, ultricies ut massa. Cras ac nulla at arcu vehicula hendrerit. </p>
-          </div>
-        </div>
-        <div class="row credits">
-            <div class="col-md-12">
-                <div class="row copyright">
-                    <div class="col-md-12">
-                        © 2013 3PS. All rights reserved. <a href="http://3ps.if.ua">3PS</a>
-                    </div>
-                </div>
-            </div>
         </div>
       </div>
     </footer>

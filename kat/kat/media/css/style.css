@@ -64,13 +64,12 @@ clear: both;
   -webkit-border-radius: 0px;
      -moz-border-radius: 0px;
           border-radius: 0px;
-
 }
 
 body,html{
   height: 100%;
-    background: white;
-font-family: 'Open Sans', sans-serif;
+  background: white;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -91,43 +90,35 @@ clear: both;
 
 .slideshow {
   margin: 0 6px 0;
-  /*width: 988px;*/
   width: 100%;
   max-height: 550px;
 }
 
 #footer {
-min-height: 260px;
-  max-height: 330px;
-margin-top: 140px;
-background-color: #222D33;
-color: #fff;
-padding-top: 35px;
-	/*height: 25px;*/
-  /*margin-top:-30px;*/
-	/*background: #a5b2b7;*/
- 	/*border-top: 1px solid #575d62;*/
-	/*color: #261001;*/
-	/*text-align: center;*/
-	/*padding-top: 4px;*/
-  /*position:fixed;*/
-  /*width:100%;*/
-  /*bottom:0;*/
+  min-height: 260px;
+  margin-top: 140px;
+  background-color: #222D33;
+  color: #fff;
+  padding-top: 35px;
   clear:both;
 }
-    #footer .credits .copyright {
-      color: #a6a6a7;
-      font-style: italic;
-      text-align: center;
-      margin-top: 30px; }
-#footer .credits {
-border-top: 1px solid #343437;
-padding: 10px 0px 60px 0px;
-}
-    .social-network {
-display: inline-block;
 
-    }
+#footer .credits .copyright {
+  color: #a6a6a7;
+  font-style: italic;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#footer .credits {
+  border-top: 1px solid #343437;
+  padding: 10px 0px 60px 0px;
+}
+
+.social-network {
+  display: inline-block;
+}
+
 .socialWidget a {
   color: #070336;
 }
@@ -138,9 +129,7 @@ display: inline-block;
 
 .fa-circle : hover {
     color: #97918B;
-
 }
-
 
 #footer  a:link, a:visited{
 	text-decoration: none;
@@ -152,13 +141,12 @@ display: inline-block;
 	color: #DD7A14;
 }
 
-
-        a:link, a:visited{
+a:link, a:visited{
 	text-decoration: none;
 	color: #070336;
 }
 
-        a:hover{
+a:hover{
 	text-decoration: none;
 	color: #97918B;
 }
@@ -172,7 +160,6 @@ img.center {
 .form-actions {
   background-color: transparent;
 }
-
 
 ul.noindent {
   margin: 0;
@@ -212,6 +199,7 @@ ul.noindent {
   float: left;
   text-transform: uppercase;
 }
+
 #error-page hgroup h1 {
   margin-top: -90px;
   font-size: 200px;
@@ -274,7 +262,6 @@ ul.noindent {
   .container {
     padding-right: 20px;
     padding-left: 20px;
-
   }
 }
 
