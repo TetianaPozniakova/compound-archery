@@ -2,6 +2,7 @@
 from django.views.generic.dates import *
 from kat_news.models import News
 from taggit.models import Tag
+from django.shortcuts import get_object_or_404
 
 
 class NewsYearArchiveView(YearArchiveView):
@@ -32,7 +33,7 @@ class TagListView(ArchiveIndexView):
 
     # It probably makes more sense to set date_field here than in the url config
     # Ideally, set it in the parent HomePageView class instead of here.
-    date_field = 'date'
+    date_field = "date"
 
     def get_queryset(self):
         """
@@ -44,6 +45,6 @@ class TagListView(ArchiveIndexView):
         """
         Include the tag in the context
         """
-        context_data = super(TagListView, self).get_context_data(self, **kwargs)
-        context_data['tag'] = Tag.objects.get(slug=self.kwargs['tag_slug'])
+        context_data = super(TagListView, self).get_context_data(**kwargs)
+        context_data['tag'] = get_object_or_404(Tag, slug=self.kwargs['tag_slug'])
         return context_data

@@ -26,5 +26,5 @@ if news_settings.ENABLE_NEWS_DATE_ARCHIVE:
     )
 
 urlpatterns += patterns('',
-    url(r'^tag/(?P<tag_slug>[-\w]+)/$', TagListView.as_view(paginate_by=5, template_name='news_archive_index.html')),
+    url(r'^tag/(?P<tag_slug>[-\w]+)/$', TagListView.as_view(paginate_by=5, template_name='news_archive.html')),
     )
