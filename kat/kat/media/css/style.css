@@ -260,6 +260,7 @@ ul.noindent {
   .navbar-inner {
     font-size: 12px;
     min-height: 20px;
+    padding: 0px;
   }
 
   .nav-collapse .nav > li > a,
