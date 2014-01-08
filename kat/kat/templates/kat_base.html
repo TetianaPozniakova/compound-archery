@@ -67,11 +67,11 @@
               <li ><a href="/contacts/">Контакты</a></li>
               <li ><a href="/links/">Ссылки</a></li>
               {% if user.is_authenticated %}
-                <li><a href="/accounts/logout/">Sign Out</a></li>
-                <li ><p class="navbar-text"">Welcome, {{ user.username }}!</p></li>
+                <li><a href="/accounts/logout/">Выйти</a></li>
+                <li ><p class="navbar-text">Добро пожаловать, {{ user.username }}!</p></li>
               {% else %}
-                <li><a href="/accounts/signup/">Get account</a></li>
-                <li><a href="/accounts/login/">Sign In</a></li>
+                <li><a href="/accounts/signup/">Регистрация</a></li>
+                <li><a href="/accounts/login/">Вход</a></li>
               {% endif %}
             </ul>
           </div>
@@ -114,42 +114,44 @@
               <h4>Contact us</h4>
               <div class="divider"><span></span></div>
               <address>
-              <strong>Little NEKO</strong>
-              <p> <i class="icon-location"></i>&nbsp;77 Mass. Ave., E14/E15<br>
-                Cambridge, MA 02139-4307 USA </p>
-              <p> <i class="icon-phone"></i>&nbsp;615.987.1234 </p>
-              <p> <i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">little@little-neko.com</a> </p>
+              <strong>Ukrainian Compound Archery</strong>
+              <p> <i class="fa fa-phone fa-lg"></i></p>
+              <p> <i class="fa fa-envelope fa-lg"></i>
+                <a href="mailto:compound-archeryua@gmail.com">compound-archeryua@gmail.com</a> </p>
               </address>
             </div>
-            <div class="span3 socialWidget">
+            <div id="socialWidget" class="span3">
               <h4>Follow us</h4>
               <div class="divider"><span></span></div>
-              <a class="social-network">
+              <div class="social-network">
+              <a>
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
                   </span></a>
-              <a class="social-network">
+              <a>
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                   </span></a>
-              <a class="social-network">
+              <a>
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
                   </span></a>
-              <a class="social-network">
+              <a>
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
                   </span></a>
-              <a class="social-network">
+              <a>
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
                   </span></a>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed lectus in turpis consequat pharetra. Nulla velit purus, vestibulum sit amet ultrices eget, ultricies ut massa. Cras ac nulla at arcu vehicula hendrerit. </p>
+                </div>
+              <p>Присоединяйтесь к нам в соц.сетях! Мы постоянно обновляемся, и Вы всегда будете в курсе самых
+                последних событий лучников.</p>
             </div>
           </div>
           <div class="row credits">

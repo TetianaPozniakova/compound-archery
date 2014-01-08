@@ -112,23 +112,7 @@ clear: both;
 
 #footer .credits {
   border-top: 1px solid #343437;
-  padding: 10px 0px 60px 0px;
-}
-
-.social-network {
-  display: inline-block;
-}
-
-.socialWidget a {
-  color: #070336;
-}
-
-.socialWidget a:hover {
-  color: #97918B;
-}
-
-.fa-circle : hover {
-    color: #97918B;
+  padding: 10px 0px 40px 0px;
 }
 
 #footer  a:link, a:visited{
@@ -141,7 +125,20 @@ clear: both;
 	color: #DD7A14;
 }
 
-a:link, a:visited{
+.social-network {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+#socialWidget a {
+  color: #070336;
+}
+
+#socialWidget a:hover {
+  color: #97918B;
+}
+
+a, a:link, a:visited{
 	text-decoration: none;
 	color: #070336;
 }
