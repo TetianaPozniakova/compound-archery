@@ -13,46 +13,50 @@
 
 <h4>{{ mname }} {{ year }}</h4>
 
-<div id="calendar">
-    <table>
+  <table class="calendar">
 
+  <tr>
+      <td class="week-day">Mon</td>
+      <td class="week-day">Tue</td>
+      <td class="week-day">Wed</td>
+      <td class="week-day">Thu</td>
+      <td class="week-day">Fri</td>
+      <td class="week-day">Sat</td>
+      <td class="week-day">Sun</td>
+  </tr>
+
+  {% for week in month_days %}
     <tr>
-        <td class="cal-day">Mon</td>
-        <td class="cal-day">Tue</td>
-        <td class="cal-day">Wed</td>
-        <td class="cal-day">Thu</td>
-        <td class="cal-day">Fri</td>
-        <td class="cal-day">Sat</td>
-        <td class="cal-day">Sun</td>
-    </tr>
+    {% for day, entries, current in week %}
 
-    {% for week in month_days %}
-        <tr>
-        {% for day, entries, current in week %}
+      <!-- TD style: empty | day | current; onClick handler and highlight  -->
+      <td class="{% if day == 0 %}empty{% endif %}
+      {% if day != 0 and not current %}day{% endif %}
+      {% if day != 0 and current %}current{% endif %}"
+      {% if day != 0 %}
+          onMouseOver="this.bgColor='#eeeeee';"
+          onMouseOut="this.bgColor='transparent';"
+      {% endif %}>
 
-            <!-- TD style: empty | day | current; onClick handler and highlight  -->
-            <td class= {% if day == 0 %}"empty"{% endif %}
-            {% if day != 0 and not current %}"day"{% endif %}
-            {% if day != 0 and current %}"current"{% endif %}
-            {% if day != 0 %}
-                onMouseOver="this.bgColor='#eeeeee';"
-                onMouseOut="this.bgColor='transparent';"
-            {% endif %} >
+      <!-- Day number and entry snippets -->
+      {% if day != 0 %}
+        <table class="cal-day {% if entries.count == 1 %}cal-entry{% endif %}
+                      {% if entries.count == 2 %}two-cal-entry{% endif %}
+                      {% if entries.count == 3 %}three-cal-entry{% endif %}">
+          <tr>
+            <td id="cal-date">{{ day }}</td>
+              {% for entry in entries %}
+                <td >{{ entry.event_title }}</td>
+              {% endfor %}
+          </tr>
+        </table>
+      {% endif %}
+      </td>
 
-            <!-- Day number and entry snippets -->
-            {% if day != 0 %}
-                {{ day }}
-                {% for entry in entries %}
-                    <br />
-                    <b>{{ entry.event_title }}</b>
-                {% endfor %}
-            {% endif %}
-            </td>
-        {% endfor %}
-        </tr>
     {% endfor %}
-    </table>
+    </tr>
+  {% endfor %}
+  </table>
 
-    <div class="clear"></div>
-</div>
+  <div class="clear"></div>
 {% endblock %}

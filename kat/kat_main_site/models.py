@@ -43,12 +43,14 @@ class Article(models.Model):
 
 class CalendarEvent(models.Model):
     event_title = models.CharField(max_length=150)
-    event_start_date = models.DateField(default=datetime.now)
-    event_end_date = models.DateField(default=datetime.now)
+    event_start_date = models.DateField()
+    event_end_date = models.DateField()
     #TODO: add choice field to select type of the competition in order to color cells on the calendar
 
     def __unicode__(self):
-        return "%s: from %s to %s" % (self.event_title, self.event_start_date, self.event_end_date)
+        return '{title}: from {start_date} to {end_date}'.format(title=self.event_title,
+                                                                 start_date=self.event_start_date,
+                                                                 end_date=self.event_end_date)
 
 
 class Video(models.Model):

@@ -53,8 +53,8 @@ def month(request, year, month, change=None):
     for day in month_days:
         entries = current = False   # are there entries for this day; current day?
         if day:
-            entries = CalendarEvent.objects.filter(event_start_date__year=year, event_start_date__month=month,
-                                                   event_start_date__day=day)
+            day_date = date(year, month, day)
+            entries = CalendarEvent.objects.filter(event_start_date__lte=day_date, event_end_date__gte=day_date)
             if day == nday and year == nyear and month == nmonth:
                 current = True
 

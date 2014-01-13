@@ -1,4 +1,4 @@
-#calendar {
+.calendar {
    margin: 0;
    padding: 0;
    /*width: 600px;*/
@@ -7,9 +7,9 @@
 }
 
 
-#calendar td {
+.calendar td {
    list-style-position: inside;
-   font-weight: bold;
+  font-size: 12px;
    width: 76px;
    height: 76px;
    /*border: 1px solid #999;*/
@@ -24,31 +24,54 @@
 
 }
 
-.cal-day {
-     height: 38px;
+.week-day{
+  height: 28px !important;
+  font-weight: bold;
 }
 
 .month {
   float: left;
   border: 1px solid #999;
-   width: 76px;
-   height: auto;
-   padding: 4px;
-   margin-left: 5px;
-
+  width: 76px;
+  height: auto;
+  padding: 4px;
+  margin-left: 5px;
 }
 
 .current {
   float: left;
   border: 1px solid #999;
   background-color: #ffb45f;
-   width: 76px;
-   height: auto;
-   padding: 4px;
-   margin-left: 5px;
-
+  width: 76px;
+  height: auto;
+  padding: 4px;
+  margin-left: 5px;
 }
 
 .clickable {
-    display: block;
+  display: block;
+}
+
+.cal-day td{
+  border-top: 0px;
+  padding: 0px;
+}
+
+#cal-date {
+  height: 19px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.cal-entry td{
+
+}
+
+.two-cal-entry td{
+  height: 28px;
+}
+
+.three-cal-entry td{
+height: 19px;
+
 }
