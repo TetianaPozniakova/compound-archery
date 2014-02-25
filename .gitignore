@@ -1,7 +1,11 @@
 *.py[cod]
 /kat/kat.db
 /kat/kat/static/
-/kat/.idea
+.idea
 /kat/kat/dev_settings.py
 kat/kat/prod_settings.py
+deploy
+venv
+temp
+newrelic.ini
 
