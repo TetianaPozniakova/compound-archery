@@ -1,8 +1,7 @@
-*.pyc
+*.py[cod]
+/kat/kat.db
+/kat/kat/static/
 /kat/.idea
-
 /kat/kat/dev_settings.py
-
-
-/kat/kat/prod_settings.py
+kat/kat/prod_settings.py
 
