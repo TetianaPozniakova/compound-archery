@@ -28,9 +28,9 @@
 
           <div class="span9 pull-right">
             <div class="row">
-              <div class="navbar-login pull-right">
+              <div class="navbar-login">
                 <div class="container">
-                  <ul class="nav ">
+                  <ul class="nav  pull-right">
                     {% if user.is_authenticated %}
                       <li ><p class="navbar-text">Добро пожаловать, {{ user.username }}!</p></li>
                       <li><a href="/accounts/logout/">Выйти</a></li>
@@ -48,8 +48,8 @@
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
               <span class="icon-th-list"></span></a>
 
-            <div class="nav-collapse collapse pull-right">
-              <ul class="nav">
+            <div class="nav-collapse collapse">
+              <ul class="nav pull-right">
                 <li ><a href="/">Главная</a></li>
                 <li ><a href="/news/">Новости</a></li>
                 <li class="dropdown">
@@ -95,12 +95,9 @@
 
     <div class="slideshow">
       <ul class="bxslider noindent">
-{#              <li><img class="center" src="{% static "kat_main_site/Logo1.jpg" %}" alt="Logo1"/></li>#}
-{#              <li><img class="center" src="{% static "kat_main_site/Logo2.jpg" %}" alt="Logo2"/></li>#}
-{#              <li><img class="center" src="{% static "kat_main_site/Logo3.jpg" %}" alt="Logo3"/></li>#}
-        <li><img class="center" src="{% static "kat_main_site/logo4.jpg" %}" alt="Logo1"/></li>
-        <li><img class="center" src="{% static "kat_main_site/logo5.jpg" %}" alt="Logo2"/></li>
-        <li><img class="center" src="{% static "kat_main_site/logo6.jpg" %}" alt="Logo3"/></li>
+        <li><img class="center" src="{% static "kat_main_site/logo1.png" %}" alt="Logo1"/></li>
+        <li><img class="center" src="{% static "kat_main_site/logo2.png" %}" alt="Logo2"/></li>
+        <li><img class="center" src="{% static "kat_main_site/logo3.png" %}" alt="Logo3"/></li>
       </ul>
     </div>
 

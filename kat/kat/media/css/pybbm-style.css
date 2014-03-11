@@ -6,13 +6,16 @@
 .category h1{
   font-size: 1.2em;
   font-weight: 400;
+  font-weight: bold;
   border-radius: 5px;
+  color: #070336;
 }
 
 .category h3{
   font-size: 1.2em;
   font-weight: bold;
   border-radius: 5px;
+  color: #070336;
 }
 
 th.forum-topic-count,
@@ -54,6 +57,7 @@ td.topic-last-post {
     width: 25%;
 }
 .forum h1 {
+    color: #070336;
     font-size: 1.3em;
     font-weight: 400;
     border-radius: 5px;
@@ -252,8 +256,6 @@ blockquote {
     border-left: 3px solid #dbd8ba;
 }
 
-.category h1 { color: #08c }
-.forum h1 { color: #08c }
 .forum-description { color: #777 }
 .head-row { color: #777 }
 .odd { background: #fafafa }
@@ -270,7 +272,7 @@ blockquote {
 }
 
 .forum-unread .state-indicator,
-.topic-unread .state-indicator { background-color: #0077bb }
+.topic-unread .state-indicator { background-color: #222D33 }
 .post-info { background: #fdfdfd }
 .post-extra-info { color: #999 }
 .post-signature {
