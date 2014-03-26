@@ -1,7 +1,7 @@
 from account.forms import SignupForm
-from captcha.fields import CaptchaField
+from simplemathcaptcha.fields import MathCaptchaField
 
 
 class SignupFormWithCaptcha(SignupForm):
-    captcha = CaptchaField()
+    captcha = MathCaptchaField()
 

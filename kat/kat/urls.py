@@ -27,7 +27,6 @@ urlpatterns = patterns('',
     url(r"^accounts/login/$", LoginView.as_view(), name="auth_login"),
 
     (r'^accounts/', include('account.urls')),
-    (r'^captcha/', include('captcha.urls')),
 
     (r'^forum/', include('pybb.urls', namespace='pybb')),
 
