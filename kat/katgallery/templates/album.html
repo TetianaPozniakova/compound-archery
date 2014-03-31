@@ -11,8 +11,7 @@
 	{% autopaginate photos 12 %}
         {% for photo in photos %}
             <ul class="thumbnails">
-            <li  class="span3">
-                <div class="thumbnail">
+            <li class="thumbnail">
                 <a style='{% thumbnail_style photo %}' rel="prettyPhoto[pp_gal]" href='{{ photo.content.src }}'>
                     <img style='{% thumbnail_style photo %}'
                             {% if photo.title %}
@@ -20,7 +19,6 @@
                             {% endif %}
                             src='{%  thumbnail_url photo %}'>
                 </a>
-                </div>
             </li>
             </ul>
         {% endfor %}
