@@ -39,7 +39,7 @@ class TagListView(ArchiveIndexView):
         """
         Only include entries tagged with the selected tag
         """
-        return News.objects.filter(tags__name=self.kwargs['tag_slug'])
+        return News.objects.filter(tags__slug=self.kwargs['tag_slug'])
 
     def get_context_data(self, **kwargs):
         """

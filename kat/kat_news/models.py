@@ -6,6 +6,7 @@ from kat import settings as news_settings
 from django.core.validators import MaxLengthValidator
 from django.core.urlresolvers import reverse
 from taggit.managers import TaggableManager
+from unicode_taggit import UnicodeTaggedItem
 
 try:
     from south.modelsinspector import add_introspection_rules
@@ -41,7 +42,7 @@ class News(models.Model):
 
     show = models.BooleanField(verbose_name=u'Опубликовано', default=True)
 
-    tags = TaggableManager()
+    tags = TaggableManager(through=UnicodeTaggedItem)
 
     def month(self):
         return MONTHS[self.date.month - 1]
