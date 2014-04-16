@@ -218,3 +218,11 @@ PICASAGALLERY_ALBUM_THUMBSIZE = '220c'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/tmp/kat_cache',
+        'TIMEOUT': 60 * 30,
+    }
+}
