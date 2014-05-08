@@ -1,3 +1,4 @@
+import os
 from django.conf import settings
 
 
@@ -12,11 +13,11 @@ ADMINS = (
 MANAGERS = ADMINS
 
 try:
-   from dev_settings import *
+    from dev_settings import *
 except ImportError:
-   pass
+    pass
 
-ALLOWED_HOSTS = ['*.alwaysdata.net', 'compound-archery.com.ua']
+ALLOWED_HOSTS = ['compound-archery.com.ua']
 
 TIME_ZONE = 'Europe/Kiev'
 
@@ -82,7 +83,6 @@ ROOT_URLCONF = 'kat.urls'
 
 WSGI_APPLICATION = 'kat.wsgi.application'
 
-import os
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
 
 THUMBNAIL_FORMAT = "JPEG"
